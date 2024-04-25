@@ -194,6 +194,34 @@ export default function App() {
     return Math.random() * (max - min) + min
   }
 
+  useEffect(() => {
+    const imgLoader = function (src) {
+      var link = document.createElement("link")
+      link.rel = "preload"
+      link.as = "image"
+      link.href = src
+
+      document.head.appendChild(link)
+    }
+
+    imgLoader("/carrusel.png")
+    imgLoader("/scroll-pantallas.png")
+    imgLoader("/movil.png")
+    imgLoader("/Meetup-update.png")
+    imgLoader("/Meetup-Create.png")
+    imgLoader("/Meetup-movil.png")
+    imgLoader("/login-photografy.png")
+    imgLoader("/visit-photogafhy.png")
+    imgLoader("/movil-photografy.png")
+
+    return () => {
+      const links = document.querySelector('link[rel="preload"]')
+      if (links && links.length > 0) {
+        links.forEach((el) => el.remove())
+      }
+    }
+  }, [])
+
   return (
     <>
       {/* <nav
