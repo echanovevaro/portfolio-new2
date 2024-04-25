@@ -409,7 +409,7 @@ export default function App() {
                     playsInline
                     loop
                     poster="/Meetup-update.png"
-                    className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                    className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] portrait:hover:scale-125 hover:z-20  transition ease-in duration-700 origin-bottom-right`}
                   >
                     <source
                       src="/Meetup-update.mp4"
@@ -428,7 +428,7 @@ export default function App() {
                     playsInline
                     loop
                     poster="/Meetup-Create.png"
-                    className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[8%] border-neutral-900 border-[4px] video-shadow rounded-lg  hover:scale-[123%] hover:z-20 transition ease-in duration-700 origin-top-left`}
+                    className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[8%] border-neutral-900 border-[4px] video-shadow rounded-lg  hover:scale-[123%] portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left`}
                   >
                     <source
                       src="/Meetup-Create.mp4"
@@ -488,7 +488,7 @@ export default function App() {
                     playsInline
                     loop
                     poster="/scroll-pantallas.png"
-                    className={`absolute z-[1] w-[85%] top-[15%] right-[15%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
+                    className={`absolute z-[1] w-[85%] top-[15%] right-[15%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left`}
                   >
                     <source
                       src="/scroll-pantallas.mp4"
@@ -548,7 +548,7 @@ export default function App() {
                     playsInline
                     loop
                     poster="/visit-photogafhy.png"
-                    className={`absolute z-[1] w-[85%] top-[15%] right-[8%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
+                    className={`absolute z-[1] w-[85%] top-[15%] right-[8%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left`}
                   >
                     <source
                       src="/visit-photogafhy.mp4"
