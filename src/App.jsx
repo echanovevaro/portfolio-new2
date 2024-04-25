@@ -204,7 +204,7 @@ export default function App() {
       {/* </nav> */}
       <div
         className={`open font-extralight uppercase text-sm ${
-          filter === "blur-bw" ? "line-dark" : ""
+          filter === "blur-bw" && workCounter !== 0 ? "line-dark" : ""
         }`}
       >
         <span className="cls" />
@@ -355,7 +355,7 @@ export default function App() {
           <div className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"></div>
           <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
           <div className="portrait:hidden col-start-4 col-end-5 row-start-2 row-end-4 rounded-full border border-white border-opacity-20"></div>
-          <div className="container relative col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full flex items-center justify-center">
+          <div className="container col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full flex items-center justify-center">
             {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
             {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
             {/* <img
@@ -372,7 +372,7 @@ export default function App() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                className="w-full h-full"
+                className="relative w-full h-full portrait:overflow-hidden"
               >
                 <video
                   autoPlay
@@ -399,7 +399,7 @@ export default function App() {
                   playsInline
                   loop
                   poster="/Meetup-Create.png"
-                  className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[123%] hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] border-neutral-900 border-[4px] video-shadow rounded-lg  hover:scale-[123%] hover:z-20 transition ease-in duration-700 origin-top-left`}
                 >
                   <source
                     src="/Meetup-Create.mp4"
@@ -432,7 +432,7 @@ export default function App() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                className="w-full h-full"
+                className="relative w-full h-full portrait:overflow-hidden"
               >
                 <video
                   autoPlay
@@ -492,18 +492,18 @@ export default function App() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                className="w-full h-full"
+                className="relative w-full h-full portrait:overflow-hidden"
               >
                 <video
                   autoPlay
                   muted
                   playsInline
                   loop
-                  poster="/carrusel.png"
+                  poster="/login-photografy.png"
                   className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
                 >
                   <source
-                    src="/carrusel.mp4"
+                    src="/login-photografy.mp4"
                     type="video/mp4"
                   />
                 </video>
@@ -518,11 +518,11 @@ export default function App() {
                   muted
                   playsInline
                   loop
-                  poster="/scroll-pantallas.png"
+                  poster="/visit-photogafhy.png"
                   className={`absolute z-[1] w-[85%] top-[15%] right-[15%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
                 >
                   <source
-                    src="/scroll-pantallas.mp4"
+                    src="/visit-photogafhy.mp4"
                     type="video/mp4"
                   />
                 </video>
@@ -532,12 +532,12 @@ export default function App() {
                   muted
                   playsInline
                   loop
-                  poster="/movil.png"
+                  poster="/movil-photografy.png"
                   className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto border-neutral-700 border-[4px] video-shadow
               rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
                 >
                   <source
-                    src="/movil.mp4"
+                    src="/movil-photografy.mp4"
                     type="video/mp4"
                   />
                 </video>
@@ -618,7 +618,9 @@ export default function App() {
             scroll
             <div
               className={`line ${
-                filter === "blur-bw" ? "scroll-line-dark" : ""
+                filter === "blur-dark" || workCounter === 0
+                  ? ""
+                  : "scroll-line-dark"
               }`}
             />
           </div>

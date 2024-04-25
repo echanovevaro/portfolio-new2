@@ -141,7 +141,7 @@ section {
   height: 50px;
   display: block;
   cursor: pointer;
-  z-index: 20;
+  z-index: 200;
 }
 
 .open span {
@@ -173,16 +173,18 @@ section {
 
 .open span:nth-child(1) {
   margin-top: 10px;
-  z-index: 9;
+  z-index: 200;
 }
 
 .open span:nth-child(2) {
   margin-top: 25px;
-  background-color: transparent;
+  background-color: transparent !important;
+  z-index: 200;
 }
 
 .open span:nth-child(3) {
   margin-top: 25px;
+  z-index: 200;
 }
 
 
@@ -197,7 +199,7 @@ section {
   background-color: rgba(253, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 50%;
-  z-index: 18;
+  z-index: 108;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -361,7 +363,7 @@ section {
 
 .container:has(video:hover) #video-bg {
   z-index: 19 !important;
-  transform: scale(130%);
+  transform: scale(120%);
 }
 
 @media screen and (max-width: 768px) {
