@@ -357,231 +357,281 @@ export default function App() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[100vh] text-sm ">
-        <div
-          className={`${
-            workCounter === 0 ? "text-slate-200" : "text-slate-900"
-          }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[110vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_1fr_2fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_2fr_3fr] overflow-hidden`}
-        >
-          <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-neutral-200  portrait:flex portrait:items-center portrait:justify-center">
-            <h1 className="landscape:ml-[35%] landscape:mt-[50%] uppercase lg:text-base text-[0.75rem]">
-              <span className="font-medium ">álvaro</span> riaño
-            </h1>
-          </div>
-          <div className="landscape:ps-[20%] landscape:pt-[17%] ps-[20%] pt-[18%] col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col items-start justify-start">
-            <h1 className=" font-thin lg:text-5xl text-3xl  uppercase block">
-              works
-            </h1>
-            <h2 className="lg:text-1xl font-normal uppercase block my-3">
-              HECTOROMERO ART
-            </h2>
-            <p className="mr-[5%] portrait:text-[0.7rem] text-balance">
-              lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              tristique, nunc nec vulputate tristique,
-            </p>
-          </div>
-          <div className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"></div>
-          <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
-          <div className="portrait:hidden col-start-4 col-end-5 row-start-2 row-end-4 rounded-full border border-white border-opacity-20"></div>
-          <div className="container col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full flex items-center justify-center">
-            {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
-            {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
-            {/* <img
+      <section className="w-[100vw] h-[100vh] text-sm">
+        <div className="relative w-full h-full overflow-hidden">
+          <div
+            className={`${
+              workCounter === 0 ? "text-slate-200" : "text-slate-900"
+            }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[10vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_1fr_2fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_2fr_3fr]`}
+          >
+            <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-neutral-200  portrait:flex portrait:items-center portrait:justify-center">
+              <h1 className="landscape:ml-[35%] landscape:mt-[50%] uppercase lg:text-base text-[0.75rem]">
+                <span className="font-medium ">álvaro</span> riaño
+              </h1>
+            </div>
+            <div className="landscape:ps-[20%] landscape:pt-[17%] ps-[20%] pt-[18%] col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col items-start justify-start">
+              <h1 className=" font-thin lg:text-5xl text-3xl  uppercase block">
+                works
+              </h1>
+              <h2 className="lg:text-1xl font-normal uppercase block my-3">
+                HECTOROMERO ART
+              </h2>
+              <p className="mr-[5%] portrait:text-[0.7rem] text-balance">
+                lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                tristique, nunc nec vulputate tristique,
+              </p>
+            </div>
+            <div className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"></div>
+            <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
+            <div className="portrait:hidden col-start-4 col-end-5 row-start-2 row-end-4 rounded-full border border-white border-opacity-20"></div>
+            <div className="container col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full flex items-center justify-center">
+              {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
+              {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
+              {/* <img
               className=" ms-[6rem] object-cover w-full"
               src={`/desktop-computer-laptop-tablet-and-smartphone-psd.png`}
               alt="hectoromero"
             /> */}
-            {workCounter === 1 && (
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 1 }}
-                className="relative w-full h-full"
-              >
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/Meetup-update.png"
-                  className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+              {workCounter === 1 && (
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  className="relative w-full h-full"
                 >
-                  <source
-                    src="/Meetup-update.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div
-                  className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
-                  id="video-bg"
-                >
-                  {" "}
-                </div>
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/Meetup-Create.png"
-                  className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[8%] border-neutral-900 border-[4px] video-shadow rounded-lg  hover:scale-[123%] hover:z-20 transition ease-in duration-700 origin-top-left`}
-                >
-                  <source
-                    src="/Meetup-Create.mp4"
-                    type="video/mp4"
-                  />
-                </video>
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/Meetup-update.png"
+                    className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  >
+                    <source
+                      src="/Meetup-update.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
+                    id="video-bg"
+                  >
+                    {" "}
+                  </div>
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/Meetup-Create.png"
+                    className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[8%] border-neutral-900 border-[4px] video-shadow rounded-lg  hover:scale-[123%] hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  >
+                    <source
+                      src="/Meetup-Create.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
 
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/Meetup-movil.png"
-                  className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto  border-neutral-900 border-[4px] video-shadow
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/Meetup-movil.png"
+                    className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto  border-neutral-900 border-[4px] video-shadow
               rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
+                  >
+                    <source
+                      src="/Meetup-movil.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </motion.div>
+              )}
+              {workCounter === 0 && (
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  className="relative w-full h-full"
                 >
-                  <source
-                    src="/Meetup-movil.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </motion.div>
-            )}
-            {workCounter === 0 && (
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 1 }}
-                className="relative w-full h-full"
-              >
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/carrusel.png"
-                  className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
-                >
-                  <source
-                    src="/carrusel.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div
-                  className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
-                  id="video-bg"
-                >
-                  {" "}
-                </div>
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/scroll-pantallas.png"
-                  className={`absolute z-[1] w-[85%] top-[15%] right-[15%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
-                >
-                  <source
-                    src="/scroll-pantallas.mp4"
-                    type="video/mp4"
-                  />
-                </video>
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/carrusel.png"
+                    className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  >
+                    <source
+                      src="/carrusel.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
+                    id="video-bg"
+                  >
+                    {" "}
+                  </div>
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/scroll-pantallas.png"
+                    className={`absolute z-[1] w-[85%] top-[15%] right-[15%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  >
+                    <source
+                      src="/scroll-pantallas.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
 
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/movil.png"
-                  className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto border-neutral-700 border-[4px] video-shadow
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/movil.png"
+                    className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto border-neutral-700 border-[4px] video-shadow
               rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
+                  >
+                    <source
+                      src="/movil.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </motion.div>
+              )}
+              {workCounter === 2 && (
+                <motion.div
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1 },
+                  }}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 1 }}
+                  className="relative w-full h-full"
                 >
-                  <source
-                    src="/movil.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </motion.div>
-            )}
-            {workCounter === 2 && (
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1 },
-                }}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 1 }}
-                className="relative w-full h-full"
-              >
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/login-photografy.png"
-                  className={`absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
-                >
-                  <source
-                    src="/login-photografy.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div
-                  className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
-                  id="video-bg"
-                >
-                  {" "}
-                </div>
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/visit-photogafhy.png"
-                  className={`absolute z-[1] w-[85%] top-[15%] right-[8%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
-                >
-                  <source
-                    src="/visit-photogafhy.mp4"
-                    type="video/mp4"
-                  />
-                </video>
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/login-photografy.png"
+                    className={`absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  >
+                    <source
+                      src="/login-photografy.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <div
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
+                    id="video-bg"
+                  >
+                    {" "}
+                  </div>
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/visit-photogafhy.png"
+                    className={`absolute z-[1] w-[85%] top-[15%] right-[8%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  >
+                    <source
+                      src="/visit-photogafhy.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
 
-                <video
-                  autoPlay
-                  muted
-                  playsInline
-                  loop
-                  poster="/movil-photografy.png"
-                  className={`absolute z-10 w-[22%] bottom-[0%] portrait:bottom-0 left-[30%] h-auto border-neutral-700 border-[4px] video-shadow
+                  <video
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                    poster="/movil-photografy.png"
+                    className={`absolute z-10 w-[22%] bottom-[0%] portrait:bottom-0 left-[30%] h-auto border-neutral-700 border-[4px] video-shadow
               rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
+                  >
+                    <source
+                      src="/movil-photografy.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </motion.div>
+              )}
+            </div>
+            <div className="portrait:hidden col-start-6 col-end-7 row-start-5 row-end-8 rounded-full border border-white border-opacity-20 flex items-center justify-center gap-2 text-lg">
+              <span className="border-b">
+                Visit site{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6 inline"
                 >
-                  <source
-                    src="/movil-photografy.mp4"
-                    type="video/mp4"
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
                   />
-                </video>
-              </motion.div>
-            )}
-          </div>
-          <div className="portrait:hidden col-start-6 col-end-7 row-start-5 row-end-8 rounded-full border border-white border-opacity-20 flex items-center justify-center gap-2 text-lg">
-            <span className="border-b">
-              Visit site{" "}
+                </svg>
+              </span>
+            </div>
+            <div
+              className={`col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-7 landscape:col-end-8 landscape:row-start-5 landscape:row-end-6 rounded-full border ${
+                workCounter === 0
+                  ? "border-white bg-white"
+                  : " border-slate-800  bg-slate-800 "
+              } border-opacity-50 flex items-center justify-center uppercase bg-opacity-10 transition-all hover:scale-110 duration-500 origin-top-right cursor-pointer`}
+              onClick={slideLeft}
+            >
+              <span className="portrait:hidden">prev</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 inline"
+                className="w-4 h-4 landscape:hidden"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+                />
+              </svg>
+            </div>
+            <div
+              className={`col-start-5 col-end-7 row-start-6 row-end-7 landscape:col-start-8 landscape:col-end-9 landscape:row-start-5 landscape:row-end-7 rounded-full border ${
+                workCounter === 0
+                  ? "border-white bg-white"
+                  : " border-slate-800  bg-slate-800 "
+              } border-opacity-50 flex items-center justify-center uppercase bg-opacity-15 transition-all hover:scale-[103%] duration-500 origin-top-right landscape:ps-6 cursor-pointer`}
+              onClick={slideRight}
+            >
+              <span className="portrait:hidden">next</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 landscape:hidden"
               >
                 <path
                   strokeLinecap="round"
@@ -589,68 +639,20 @@ export default function App() {
                   d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
                 />
               </svg>
-            </span>
-          </div>
-          <div
-            className={`col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-7 landscape:col-end-8 landscape:row-start-5 landscape:row-end-6 rounded-full border ${
-              workCounter === 0
-                ? "border-white bg-white"
-                : " border-slate-800  bg-slate-800 "
-            } border-opacity-50 flex items-center justify-center uppercase bg-opacity-10 transition-all hover:scale-110 duration-500 origin-top-right cursor-pointer`}
-            onClick={slideLeft}
-          >
-            <span className="portrait:hidden">prev</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4 landscape:hidden"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
-              />
-            </svg>
-          </div>
-          <div
-            className={`col-start-5 col-end-7 row-start-6 row-end-7 landscape:col-start-8 landscape:col-end-9 landscape:row-start-5 landscape:row-end-7 rounded-full border ${
-              workCounter === 0
-                ? "border-white bg-white"
-                : " border-slate-800  bg-slate-800 "
-            } border-opacity-50 flex items-center justify-center uppercase bg-opacity-15 transition-all hover:scale-[103%] duration-500 origin-top-right landscape:ps-6 cursor-pointer`}
-            onClick={slideRight}
-          >
-            <span className="portrait:hidden">next</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 landscape:hidden"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </div>
-          <div
-            className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-9 landscape:row-start-7 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
-            onClick={scroll}
-          >
-            scroll
+            </div>
             <div
-              className={`line ${
-                filter === "blur-dark" || workCounter === 0
-                  ? ""
-                  : "scroll-line-dark"
-              }`}
-            />
+              className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-9 landscape:row-start-7 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
+              onClick={scroll}
+            >
+              scroll
+              <div
+                className={`line ${
+                  filter === "blur-dark" || workCounter === 0
+                    ? ""
+                    : "scroll-line-dark"
+                }`}
+              />
+            </div>
           </div>
         </div>
       </section>
