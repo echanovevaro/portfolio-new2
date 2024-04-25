@@ -380,7 +380,7 @@ export default function App() {
                   playsInline
                   loop
                   poster="/Meetup-update.png"
-                  className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] portrait:right-[7%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
                 >
                   <source
                     src="/Meetup-update.mp4"
@@ -500,7 +500,7 @@ export default function App() {
                   playsInline
                   loop
                   poster="/login-photografy.png"
-                  className={`absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] portrait:right-[7%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  className={`absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
                 >
                   <source
                     src="/login-photografy.mp4"
