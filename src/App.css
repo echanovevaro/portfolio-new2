@@ -167,9 +167,9 @@ section {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
-.line-dark .sub-menu li a {
+/* .line-dark .sub-menu li a {
   color: rgb(30, 41, 59) !important;
-}
+} */
 
 .open span:nth-child(1) {
   margin-top: 10px;
