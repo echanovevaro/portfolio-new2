@@ -329,11 +329,11 @@ export default function App() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[100vh] text-sm">
+      <section className="w-full h-[100vh] text-sm ">
         <div
           className={`${
             workCounter === 0 ? "text-slate-200" : "text-slate-900"
-          }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[110vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_1fr_2fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_2fr_3fr]`}
+          }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[110vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_1fr_2fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_2fr_3fr] overflow-hidden`}
         >
           <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-neutral-200  portrait:flex portrait:items-center portrait:justify-center">
             <h1 className="landscape:ml-[35%] landscape:mt-[50%] uppercase lg:text-base text-[0.75rem]">
@@ -372,7 +372,7 @@ export default function App() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                className="relative w-full h-full portrait:overflow-hidden"
+                className="relative w-full h-full"
               >
                 <video
                   autoPlay
@@ -380,7 +380,7 @@ export default function App() {
                   playsInline
                   loop
                   poster="/Meetup-update.png"
-                  className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] portrait:right-[7%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
                 >
                   <source
                     src="/Meetup-update.mp4"
@@ -399,7 +399,7 @@ export default function App() {
                   playsInline
                   loop
                   poster="/Meetup-Create.png"
-                  className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] border-neutral-900 border-[4px] video-shadow rounded-lg  hover:scale-[123%] hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[8%] border-neutral-900 border-[4px] video-shadow rounded-lg  hover:scale-[123%] hover:z-20 transition ease-in duration-700 origin-top-left`}
                 >
                   <source
                     src="/Meetup-Create.mp4"
@@ -432,7 +432,7 @@ export default function App() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                className="relative w-full h-full portrait:overflow-hidden"
+                className="relative w-full h-full"
               >
                 <video
                   autoPlay
@@ -492,7 +492,7 @@ export default function App() {
                 initial="hidden"
                 animate="visible"
                 transition={{ duration: 1 }}
-                className="relative w-full h-full portrait:overflow-hidden"
+                className="relative w-full h-full"
               >
                 <video
                   autoPlay
@@ -500,7 +500,7 @@ export default function App() {
                   playsInline
                   loop
                   poster="/login-photografy.png"
-                  className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  className={`absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] portrait:right-[7%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
                 >
                   <source
                     src="/login-photografy.mp4"
@@ -519,7 +519,7 @@ export default function App() {
                   playsInline
                   loop
                   poster="/visit-photogafhy.png"
-                  className={`absolute z-[1] w-[85%] top-[15%] right-[15%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  className={`absolute z-[1] w-[85%] top-[15%] right-[8%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 hover:z-20 transition ease-in duration-700 origin-top-left`}
                 >
                   <source
                     src="/visit-photogafhy.mp4"
@@ -533,7 +533,7 @@ export default function App() {
                   playsInline
                   loop
                   poster="/movil-photografy.png"
-                  className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto border-neutral-700 border-[4px] video-shadow
+                  className={`absolute z-10 w-[22%] bottom-[0%] portrait:bottom-0 left-[30%] h-auto border-neutral-700 border-[4px] video-shadow
               rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
                 >
                   <source
