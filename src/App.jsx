@@ -491,14 +491,14 @@ export default function App() {
                     {" "}
                   </div>
                   <div
-                    className="absolute z-[1] w-[85%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-105 hover:z-20 transition ease-in duration-700 origin-top-left"
+                    className="player absolute z-[1] w-[85%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-105 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
                       muted
                       playsInline
                       poster="/scroll-pantallas.png"
-                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      className={`w-full h-auto border-neutral-700 border-[4px] video-shadow rounded-lg`}
                       onPlay={() => setIsPlaying(true)}
                       onEnded={(e) => {
                         setIsPlaying(false)
@@ -510,46 +510,34 @@ export default function App() {
                         type="video/mp4"
                       />
                     </video>
-                    <div
-                      className={`${
-                        isPlaying ? "hidden" : ""
-                      } absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border-[3px] border-white w-12 h-12 flex items-center justify-center`}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="white"
-                        className={`w-8 h-8`}
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-
-                    {/* <svg
+                    <svg
                       xmlns="http://www.w3.org/2000/svg"
+                      fill="#333"
                       viewBox="0 0 24 24"
-                      fill="#ccc"
+                      strokeWidth={0.5}
+                      stroke="white"
                       className={`${
                         isPlaying ? "hidden" : ""
-                      } w-12 h-12 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer`}
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
                     >
                       <path
-                        fillRule="evenodd"
-                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z"
-                        clipRule="evenodd"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                       />
-                    </svg> */}
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
                   </div>
                   <video
                     muted
                     playsInline
                     loop
                     poster="/movil.png"
-                    className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto border-neutral-700 border-[4px] video-shadow
+                    className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto border-neutral-900 border-[3px] video-shadow
               rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
                   >
                     <source
@@ -677,9 +665,9 @@ export default function App() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={1}
                 stroke="currentColor"
-                className="w-6 h-6 landscape:hidden"
+                className="w-8 h-8 landscape:hidden"
               >
                 <path
                   strokeLinecap="round"

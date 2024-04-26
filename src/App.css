@@ -361,7 +361,7 @@ section {
   box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-.container:has(video:hover) #video-bg {
+.container:has(.player:hover) #video-bg {
   z-index: 19 !important;
   transform: scale(120%);
 }
