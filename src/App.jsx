@@ -7,6 +7,15 @@ const NUM_WORKS = 3
 export default function App() {
   const [filter, setFilter] = useState("blur-dark")
   const [workCounter, setWorkCounter] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const load = (e) => {
+    e.currentTarget.load()
+  }
+
+  const play = (e) => {
+    e.currentTarget.querySelector("video").play()
+  }
 
   const slideLeft = () => {
     workCounter > 0
@@ -373,10 +382,10 @@ export default function App() {
               <h1 className=" font-thin lg:text-5xl text-3xl  uppercase block">
                 works
               </h1>
-              <h2 className="lg:text-1xl font-normal uppercase block my-3">
+              <h2 className="lg:text-1xl font-thin uppercase block my-1">
                 HECTOROMERO ART
               </h2>
-              <p className="mr-[5%] portrait:text-[0.7rem] text-balance">
+              <p className="mr-[5%] portrait:text-[0.7rem] text-balance font-thin">
                 lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                 tristique, nunc nec vulputate tristique,
               </p>
@@ -464,7 +473,6 @@ export default function App() {
                   className="relative w-full h-full"
                 >
                   <video
-                    autoPlay
                     muted
                     playsInline
                     loop
@@ -482,22 +490,61 @@ export default function App() {
                   >
                     {" "}
                   </div>
-                  <video
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    poster="/scroll-pantallas.png"
-                    className={`absolute z-[1] w-[85%] top-[15%] right-[15%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  <div
+                    className="absolute z-[1] w-[85%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-105 hover:z-20 transition ease-in duration-700 origin-top-left"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/scroll-pantallas.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
+                    <video
+                      muted
+                      playsInline
+                      poster="/scroll-pantallas.png"
+                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      onPlay={() => setIsPlaying(true)}
+                      onEnded={(e) => {
+                        setIsPlaying(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/scroll-pantallas.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div
+                      className={`${
+                        isPlaying ? "hidden" : ""
+                      } absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border-[3px] border-white w-12 h-12 flex items-center justify-center`}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="white"
+                        className={`w-8 h-8`}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
 
+                    {/* <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="#ccc"
+                      className={`${
+                        isPlaying ? "hidden" : ""
+                      } w-12 h-12 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 cursor-pointer`}
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm14.024-.983a1.125 1.125 0 0 1 0 1.966l-5.603 3.113A1.125 1.125 0 0 1 9 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113Z"
+                        clipRule="evenodd"
+                      />
+                    </svg> */}
+                  </div>
                   <video
-                    autoPlay
                     muted
                     playsInline
                     loop
@@ -597,10 +644,11 @@ export default function App() {
                 workCounter === 0
                   ? "border-white bg-white"
                   : " border-slate-800  bg-slate-800 "
-              } border-opacity-50 flex items-center justify-center uppercase bg-opacity-10 transition-all hover:scale-110 duration-500 origin-top-right cursor-pointer`}
+              } border-opacity-50 flex items-center justify-center uppercase bg-opacity-10 transition-all hover:scale-110 duration-500 origin-top-right portrait:origin-bottom-right cursor-pointer`}
               onClick={slideLeft}
             >
               <span className="portrait:hidden">prev</span>
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -612,7 +660,7 @@ export default function App() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+                  d="M15.75 19.5 8.25 12l7.5-7.5"
                 />
               </svg>
             </div>
@@ -636,12 +684,12 @@ export default function App() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
                 />
               </svg>
             </div>
             <div
-              className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-9 landscape:row-start-7 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
+              className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-9 landscape:row-start-7 landscape:row-end-8 rounded-full landscape:bg-white landscape:bg-opacity-[10%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
               onClick={scroll}
             >
               scroll
@@ -653,6 +701,7 @@ export default function App() {
                 }`}
               />
             </div>
+            <div className="col-start-4 col-end-5"></div>
           </div>
         </div>
       </section>
