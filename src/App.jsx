@@ -1,5 +1,5 @@
 import "./App.css"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 
 const NUM_WORKS = 3
@@ -10,6 +10,19 @@ export default function App() {
   const [isPlaying1, setIsPlaying1] = useState(false)
   const [isPlaying2, setIsPlaying2] = useState(false)
   const [isPlaying3, setIsPlaying3] = useState(false)
+  const ref = useRef(0)
+
+  function onPanStart(_, info) {
+    ref.current = info.point.x
+  }
+
+  function onPanEnd(_, info) {
+    if (info.point.x < ref.current) {
+      slideRight()
+    } else if (info.point.x > ref.current) {
+      slideLeft()
+    }
+  }
 
   const load = (e) => {
     e.currentTarget.load()
@@ -421,7 +434,9 @@ export default function App() {
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 1 }}
-                  className="relative w-full h-full"
+                  className="relative w-full h-full touch-pinch-zoom"
+                  onPanStart={onPanStart}
+                  onPanEnd={onPanEnd}
                 >
                   <div
                     className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-fit hover:scale-[140%] portrait:hover:scale-125 hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
@@ -567,7 +582,9 @@ export default function App() {
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 1 }}
-                  className="relative w-full h-full"
+                  className="relative w-full h-full touch-pinch-zoom"
+                  onPanStart={onPanStart}
+                  onPanEnd={onPanEnd}
                 >
                   <div
                     className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-fit hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
@@ -713,7 +730,9 @@ export default function App() {
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 1 }}
-                  className="relative w-full h-full"
+                  className="relative w-full h-full touch-pinch-zoom"
+                  onPanStart={onPanStart}
+                  onPanEnd={onPanEnd}
                 >
                   <div
                     className="player absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] h-fit hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
