@@ -397,15 +397,15 @@ export default function App() {
               workCounter === 0 ? "text-slate-200" : "text-slate-900"
             }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[10vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_1fr_2fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_2fr_3fr]`}
           >
-            <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-neutral-200  portrait:flex portrait:items-center portrait:justify-center">
-              <h1 className="landscape:ml-[35%] landscape:mt-[50%] uppercase lg:text-base text-[0.75rem]">
-                <span className="font-medium ">álvaro</span> riaño
-              </h1>
-            </div>
-            <div className="landscape:ps-[20%] landscape:pt-[17%] ps-[20%] pt-[18%] col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col items-start justify-start">
-              <h1 className=" font-thin lg:text-5xl text-3xl  uppercase block">
+            <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-neutral-200 border-opacity-50 flex flex-col items-center justify-center">
+              <h1 className=" font-thin lg:text-4xl text-3xl  uppercase block">
                 works
               </h1>
+              <span className="lg:text-xl text-[0.75rem] font-thin">
+                0{workCounter + 1} | 0{NUM_WORKS}
+              </span>
+            </div>
+            <div className="landscape:ps-[20%] landscape:pt-[17%] ps-[20%] pt-[18%] col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col items-start justify-start">
               <h2 className="lg:text-1xl font-thin uppercase block my-1">
                 HECTOROMERO ART
               </h2>
