@@ -430,13 +430,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.7rem] portrait:text-[0.6rem] portrait:leading-4 leading-5">
-                    Artist website with admin mode.
+                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                    Artist website with admin mode, UX/UI Fullstack.
                   </p>
-                  <p className="text-[0.7rem] portrait:text-[0.6rem] portrait:leading-4 leading-5">
-                    UX/UI design, fullstack development.
-                  </p>
-                  <p className="text-[0.7rem] portrait:text-[0.6rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Tailwind, Framer-Motion
                     and firebase.
                   </p>
