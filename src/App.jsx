@@ -401,7 +401,7 @@ export default function App() {
               <h1 className=" font-thin lg:text-4xl text-3xl  uppercase block">
                 works
               </h1>
-              <span className="lg:text-xl text-[0.75rem] font-thin">
+              <span className="lg:text-xl text-[0.75rem] font-extralight">
                 0{workCounter + 1} | 0{NUM_WORKS}
               </span>
             </div>
