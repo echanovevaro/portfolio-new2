@@ -405,14 +405,43 @@ export default function App() {
                 0{workCounter + 1} | 0{NUM_WORKS}
               </span>
             </div>
-            <div className="landscape:ps-[20%] landscape:pt-[17%] ps-[20%] pt-[18%] col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col items-start justify-start">
-              <h2 className="lg:text-1xl font-thin uppercase block my-1">
-                HECTOROMERO ART
-              </h2>
-              <p className="mr-[5%] portrait:text-[0.7rem] text-balance font-thin">
-                lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                tristique, nunc nec vulputate tristique,
-              </p>
+            <div className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col justify-items-start justify-center text-left px-8 landscape:px-12 font-thin">
+              {workCounter === 0 && (
+                <>
+                  <h1
+                    className="lg:text-1xl text-xs font-extralight uppercase block mb-2 cursor-pointer"
+                    onClick={() =>
+                      window.open("https://hectoromero.art", "_blank")
+                    }
+                  >
+                    HECTOROMERO.ART{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1}
+                      stroke="currentColor"
+                      className="w-3 h-3 lg:h-4 lg:w-4 inline"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </h1>
+                  <p className="text-[0.7rem] portrait:text-[0.6rem] portrait:leading-4 leading-5">
+                    Artist website with admin mode.
+                  </p>
+                  <p className="text-[0.7rem] portrait:text-[0.6rem] portrait:leading-4 leading-5">
+                    UX/UI design, fullstack development.
+                  </p>
+                  <p className="text-[0.7rem] portrait:text-[0.6rem] portrait:leading-4 leading-5">
+                    React, TanStack Query, React Router, Tailwind, Framer-Motion
+                    and firebase.
+                  </p>
+                </>
+              )}
             </div>
             <div className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"></div>
             <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
