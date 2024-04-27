@@ -7,7 +7,9 @@ const NUM_WORKS = 3
 export default function App() {
   const [filter, setFilter] = useState("blur-dark")
   const [workCounter, setWorkCounter] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying1, setIsPlaying1] = useState(false)
+  const [isPlaying2, setIsPlaying2] = useState(false)
+  const [isPlaying3, setIsPlaying3] = useState(false)
 
   const load = (e) => {
     e.currentTarget.load()
@@ -18,18 +20,27 @@ export default function App() {
   }
 
   const slideLeft = () => {
+    setIsPlaying1(false)
+    setIsPlaying2(false)
+    setIsPlaying3(false)
     workCounter > 0
       ? setWorkCounter(workCounter - 1)
       : setWorkCounter(NUM_WORKS - 1)
   }
 
   const slideRight = () => {
+    setIsPlaying1(false)
+    setIsPlaying2(false)
+    setIsPlaying3(false)
     workCounter < NUM_WORKS - 1
       ? setWorkCounter(workCounter + 1)
       : setWorkCounter(0)
   }
 
   const onScroll = useCallback(() => {
+    setIsPlaying1(false)
+    setIsPlaying2(false)
+    setIsPlaying3(false)
     const { scrollY, innerHeight } = window
 
     if (scrollY >= innerHeight && filter !== "blur-bw") {
@@ -412,53 +423,139 @@ export default function App() {
                   transition={{ duration: 1 }}
                   className="relative w-full h-full"
                 >
-                  <video
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    poster="/Meetup-update.png"
-                    className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-900 border-[4px] video-shadow rounded-lg hover:scale-[140%] portrait:hover:scale-125 hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  <div
+                    className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-fit hover:scale-[140%] portrait:hover:scale-125 hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/Meetup-update.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
+                    <video
+                      muted
+                      playsInline
+                      poster="/Meetup-update.png"
+                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      onPlay={() => setIsPlaying2(true)}
+                      onEnded={(e) => {
+                        setIsPlaying2(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/Meetup-update.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="white"
+                      viewBox="0 0 24 24"
+                      strokeWidth={0.5}
+                      stroke="#333"
+                      className={`${
+                        isPlaying2 ? "hidden" : ""
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
+                  </div>
                   <div
                     className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
                     id="video-bg"
                   >
                     {" "}
                   </div>
-                  <video
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    poster="/Meetup-Create.png"
-                    className={`absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[8%] border-neutral-900 border-[4px] video-shadow rounded-lg  hover:scale-[123%] portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  <div
+                    className="player absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[8%] h-fit hover:scale-[123%] portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/Meetup-Create.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-
-                  <video
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    poster="/Meetup-movil.png"
-                    className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto  border-neutral-900 border-[4px] video-shadow
-              rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
+                    <video
+                      muted
+                      playsInline
+                      poster="/Meetup-Create.png"
+                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      onPlay={() => setIsPlaying1(true)}
+                      onEnded={(e) => {
+                        setIsPlaying1(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/Meetup-Create.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="white"
+                      viewBox="0 0 24 24"
+                      strokeWidth={0.5}
+                      stroke="#333"
+                      className={`${
+                        isPlaying1 ? "hidden" : ""
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    className="player absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/Meetup-movil.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
+                    <video
+                      muted
+                      playsInline
+                      poster="/Meetup-movil.png"
+                      className={`w-full h-auto  border-neutral-900 border-[3px] video-shadow
+              rounded-lg `}
+                      onPlay={() => setIsPlaying3(true)}
+                      onEnded={(e) => {
+                        setIsPlaying3(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/Meetup-movil.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="white"
+                      viewBox="0 0 24 24"
+                      strokeWidth={0.5}
+                      stroke="#333"
+                      className={`${
+                        isPlaying3 ? "hidden" : ""
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
+                  </div>
                 </motion.div>
               )}
               {workCounter === 0 && (
@@ -472,18 +569,48 @@ export default function App() {
                   transition={{ duration: 1 }}
                   className="relative w-full h-full"
                 >
-                  <video
-                    muted
-                    playsInline
-                    loop
-                    poster="/carrusel.png"
-                    className={`absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  <div
+                    className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-fit hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/carrusel.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
+                    <video
+                      muted
+                      playsInline
+                      poster="/carrusel.png"
+                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      onPlay={() => setIsPlaying2(true)}
+                      onEnded={(e) => {
+                        setIsPlaying2(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/carrusel.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="#333"
+                      viewBox="0 0 24 24"
+                      strokeWidth={0.5}
+                      stroke="white"
+                      className={`${
+                        isPlaying2 ? "hidden" : ""
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
+                  </div>
                   <div
                     className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
                     id="video-bg"
@@ -498,10 +625,10 @@ export default function App() {
                       muted
                       playsInline
                       poster="/scroll-pantallas.png"
-                      className={`w-full h-auto border-neutral-700 border-[4px] video-shadow rounded-lg`}
-                      onPlay={() => setIsPlaying(true)}
+                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      onPlay={() => setIsPlaying1(true)}
                       onEnded={(e) => {
-                        setIsPlaying(false)
+                        setIsPlaying1(false)
                         load(e)
                       }}
                     >
@@ -517,7 +644,7 @@ export default function App() {
                       strokeWidth={0.5}
                       stroke="white"
                       className={`${
-                        isPlaying ? "hidden" : ""
+                        isPlaying1 ? "hidden" : ""
                       } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
                     >
                       <path
@@ -532,19 +659,49 @@ export default function App() {
                       />
                     </svg>
                   </div>
-                  <video
-                    muted
-                    playsInline
-                    loop
-                    poster="/movil.png"
-                    className={`absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-auto border-neutral-900 border-[3px] video-shadow
-              rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
+                  <div
+                    className="player absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%]  h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/movil.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
+                    <video
+                      muted
+                      playsInline
+                      poster="/movil.png"
+                      className={`w-full h-auto border-neutral-900 border-[3px] video-shadow
+              rounded-lg`}
+                      onPlay={() => setIsPlaying3(true)}
+                      onEnded={(e) => {
+                        setIsPlaying3(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/movil.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="#333"
+                      viewBox="0 0 24 24"
+                      strokeWidth={0.5}
+                      stroke="white"
+                      className={`${
+                        isPlaying3 ? "hidden" : ""
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
+                  </div>
                 </motion.div>
               )}
               {workCounter === 2 && (
@@ -558,53 +715,139 @@ export default function App() {
                   transition={{ duration: 1 }}
                   className="relative w-full h-full"
                 >
-                  <video
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    poster="/login-photografy.png"
-                    className={`absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right`}
+                  <div
+                    className="player absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] h-fit hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/login-photografy.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
+                    <video
+                      muted
+                      playsInline
+                      poster="/login-photografy.png"
+                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      onPlay={() => setIsPlaying2(true)}
+                      onEnded={(e) => {
+                        setIsPlaying2(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/login-photografy.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="#333"
+                      viewBox="0 0 24 24"
+                      strokeWidth={0.5}
+                      stroke="white"
+                      className={`${
+                        isPlaying2 ? "hidden" : ""
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
+                  </div>
                   <div
                     className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
                     id="video-bg"
                   >
                     {" "}
                   </div>
-                  <video
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    poster="/visit-photogafhy.png"
-                    className={`absolute z-[1] w-[85%] top-[15%] right-[8%] portrait:right-[10%] h-auto border-neutral-700 border-[4px] video-shadow rounded-lg hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left`}
+                  <div
+                    className="player absolute z-[1] w-[85%] top-[15%] right-[8%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/visit-photogafhy.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-
-                  <video
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                    poster="/movil-photografy.png"
-                    className={`absolute z-10 w-[22%] bottom-[0%] portrait:bottom-0 left-[30%] h-auto border-neutral-700 border-[4px] video-shadow
-              rounded-lg hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left`}
+                    <video
+                      muted
+                      playsInline
+                      poster="/visit-photogafhy.png"
+                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      onPlay={() => setIsPlaying1(true)}
+                      onEnded={(e) => {
+                        setIsPlaying1(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/visit-photogafhy.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="#333"
+                      viewBox="0 0 24 24"
+                      strokeWidth={0.5}
+                      stroke="white"
+                      className={`${
+                        isPlaying1 ? "hidden" : ""
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    className="player absolute z-10 w-[22%] bottom-[0%] portrait:bottom-0 left-[30%] h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
+                    onClick={(e) => play(e)}
                   >
-                    <source
-                      src="/movil-photografy.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
+                    <video
+                      muted
+                      playsInline
+                      poster="/movil-photografy.png"
+                      className={`w-full h-auto border-neutral-900 border-[3px] video-shadow
+              rounded-lg`}
+                      onPlay={() => setIsPlaying3(true)}
+                      onEnded={(e) => {
+                        setIsPlaying3(false)
+                        load(e)
+                      }}
+                    >
+                      <source
+                        src="/movil-photografy.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="#333"
+                      viewBox="0 0 24 24"
+                      strokeWidth={0.5}
+                      stroke="white"
+                      className={`${
+                        isPlaying3 ? "hidden" : ""
+                      } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z"
+                      />
+                    </svg>
+                  </div>
                 </motion.div>
               )}
             </div>
