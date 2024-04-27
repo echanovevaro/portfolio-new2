@@ -735,7 +735,7 @@ export default function App() {
                   onPanEnd={onPanEnd}
                 >
                   <div
-                    className="player absolute z-10 w-[55%] top-[45%] portrait:top-[45%] right-[0%] h-fit hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player absolute z-10 w-[55%] top-[45%] portrait:top-[50%] right-[0%] h-fit hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -783,7 +783,7 @@ export default function App() {
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[1] w-[85%] top-[15%] right-[8%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[1] w-[85%] top-[15%] portrait:top-[10%] right-[8%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
