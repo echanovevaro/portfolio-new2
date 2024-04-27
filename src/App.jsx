@@ -409,12 +409,12 @@ export default function App() {
               {workCounter === 0 && (
                 <>
                   <h1
-                    className="lg:text-1xl text-xs font-light uppercase block mb-2 cursor-pointer"
+                    className="lg:text-1xl text-sm font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open("https://hectoromero.art", "_blank")
                     }
                   >
-                    HECTOROMERO.ART{" "}
+                    HECTOROMERO{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -430,10 +430,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Artist website with admin mode, UX/UI Fullstack.
                   </p>
-                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Tailwind, Framer-Motion
                     and firebase.
                   </p>
@@ -442,7 +442,7 @@ export default function App() {
               {workCounter === 1 && (
                 <>
                   <h1
-                    className="lg:text-1xl text-xs font-light uppercase block mb-2 cursor-pointer"
+                    className="lg:text-1xl text-sm font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "https://next-js-meetup-crud-14.vercel.app/",
@@ -466,10 +466,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.7rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
                     Meetusp CRUD
                   </p>
-                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.7rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
                     Next14, TanStack Query, React Router, Bootstrap, and
                     MongoDB.
                   </p>
@@ -478,7 +478,7 @@ export default function App() {
               {workCounter === 2 && (
                 <>
                   <h1
-                    className="lg:text-1xl text-xs font-light uppercase block mb-2 cursor-pointer"
+                    className="lg:text-1xl text-sm font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "https://jocular-sawine-5cf217.netlify.app/photographers",
@@ -502,10 +502,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Platform for professional photographers
                   </p>
-                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Bootstrap, and
                     firebase.
                   </p>
