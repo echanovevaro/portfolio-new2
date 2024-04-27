@@ -481,12 +481,12 @@ export default function App() {
                     className="lg:text-1xl text-xs font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
-                        "https://next-js-meetup-crud-14.vercel.app/",
+                        "https://jocular-sawine-5cf217.netlify.app/photographers",
                         "_blank"
                       )
                     }
                   >
-                    PHOTOGRA<b>PY</b>{" "}
+                    PHOTOGRA<b>FY</b>{" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
