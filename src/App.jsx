@@ -405,11 +405,11 @@ export default function App() {
                 0{workCounter + 1} | 0{NUM_WORKS}
               </span>
             </div>
-            <div className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col justify-items-start justify-center text-left px-8 landscape:px-12 font-thin">
+            <div className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col justify-items-start justify-center text-left px-8 landscape:px-12 font-extralight">
               {workCounter === 0 && (
                 <>
                   <h1
-                    className="lg:text-1xl text-xs font-extralight uppercase block mb-2 cursor-pointer"
+                    className="lg:text-1xl text-xs font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open("https://hectoromero.art", "_blank")
                     }
@@ -436,6 +436,78 @@ export default function App() {
                   <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Tailwind, Framer-Motion
                     and firebase.
+                  </p>
+                </>
+              )}
+              {workCounter === 1 && (
+                <>
+                  <h1
+                    className="lg:text-1xl text-xs font-light uppercase block mb-2 cursor-pointer"
+                    onClick={() =>
+                      window.open(
+                        "https://next-js-meetup-crud-14.vercel.app/",
+                        "_blank"
+                      )
+                    }
+                  >
+                    MEETUPS{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1}
+                      stroke="currentColor"
+                      className="w-3 h-3 lg:h-4 lg:w-4 inline"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </h1>
+                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                    Meetusp CRUD
+                  </p>
+                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                    Next14, TanStack Query, React Router, Bootstrap, and
+                    MongoDB.
+                  </p>
+                </>
+              )}
+              {workCounter === 2 && (
+                <>
+                  <h1
+                    className="lg:text-1xl text-xs font-light uppercase block mb-2 cursor-pointer"
+                    onClick={() =>
+                      window.open(
+                        "https://next-js-meetup-crud-14.vercel.app/",
+                        "_blank"
+                      )
+                    }
+                  >
+                    PHOTOGRA<b>PY</b>{" "}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1}
+                      stroke="currentColor"
+                      className="w-3 h-3 lg:h-4 lg:w-4 inline"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </h1>
+                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                    Platform for professional photographers
+                  </p>
+                  <p className="text-[0.7rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                    React, TanStack Query, React Router, Bootstrap, and
+                    firebase.
                   </p>
                 </>
               )}
