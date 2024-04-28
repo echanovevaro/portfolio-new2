@@ -363,7 +363,7 @@ section {
 
 .container:has(.player:hover) #video-bg {
   z-index: 19 !important;
-  transform: scale(130%) translate(8%, -5%) !important;
+  transform: scale(130%) translate(0%, -4%) !important;
 }
 
 @media screen and (max-width: 768px) {
