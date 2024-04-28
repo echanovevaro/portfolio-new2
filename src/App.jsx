@@ -409,7 +409,7 @@ export default function App() {
               {workCounter === 0 && (
                 <>
                   <h1
-                    className="lg:text-1xl text-sm font-light uppercase block mb-2 cursor-pointer"
+                    className="lg:text-2xl text-balance font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open("https://hectoromero.art", "_blank")
                     }
@@ -442,7 +442,7 @@ export default function App() {
               {workCounter === 1 && (
                 <>
                   <h1
-                    className="lg:text-1xl text-sm font-light uppercase block mb-2 cursor-pointer"
+                    className="lg:text-2xl text-lg font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "https://next-js-meetup-crud-14.vercel.app/",
@@ -466,10 +466,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.7rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.8rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
                     Meetusp CRUD
                   </p>
-                  <p className="text-[0.7rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.8rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
                     Next14, TanStack Query, React Router, Bootstrap, and
                     MongoDB.
                   </p>
@@ -478,7 +478,7 @@ export default function App() {
               {workCounter === 2 && (
                 <>
                   <h1
-                    className="lg:text-1xl text-sm font-light uppercase block mb-2 cursor-pointer"
+                    className="lg:text-2xl text-lg font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "https://jocular-sawine-5cf217.netlify.app/photographers",
@@ -502,10 +502,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.8rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
                     Platform for professional photographers
                   </p>
-                  <p className="text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="text-[0.8rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Bootstrap, and
                     firebase.
                   </p>
@@ -537,14 +537,14 @@ export default function App() {
                   onPanEnd={onPanEnd}
                 >
                   <div
-                    className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-fit hover:scale-[140%] portrait:hover:scale-125 hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player absolute z-10 w-[70%] top-[43%] portrait:top-[45%] landscape:right-[2%] portrait:right-[2%] h-fit hover:scale-[140%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
                       muted
                       playsInline
                       poster="/Meetup-update.png"
-                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      className={`w-full h-auto border-neutral-400 border-[4px] video-shadow rounded-lg`}
                       onPlay={() => setIsPlaying2(true)}
                       onEnded={(e) => {
                         setIsPlaying2(false)
@@ -579,20 +579,20 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-[rgb(0,44,62)] border-opacity-20 backdrop-blur"
                     id="video-bg"
                   >
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[8%] h-fit hover:scale-[123%] portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-fit hover:scale-[123%] portrait:hover:scale-[112%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
                       muted
                       playsInline
                       poster="/Meetup-Create.png"
-                      className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
+                      className={`w-full h-auto border-neutral-400 border-[4px] video-shadow rounded-lg`}
                       onPlay={() => setIsPlaying1(true)}
                       onEnded={(e) => {
                         setIsPlaying1(false)
@@ -634,7 +634,7 @@ export default function App() {
                       muted
                       playsInline
                       poster="/Meetup-movil.png"
-                      className={`w-full h-auto  border-neutral-900 border-[3px] video-shadow
+                      className={`w-full h-auto  border-neutral-400 border-[3px] video-shadow
               rounded-lg `}
                       onPlay={() => setIsPlaying3(true)}
                       onEnded={(e) => {
@@ -685,7 +685,7 @@ export default function App() {
                   onPanEnd={onPanEnd}
                 >
                   <div
-                    className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] h-fit hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%]  portrait:right-[2%] h-fit hover:scale-[150%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -733,13 +733,13 @@ export default function App() {
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[1] w-[85%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-105 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[1] w-[85%] top-[15%] portrait:top-[15%] right-[15%] portrait:right-[14%] h-fit hover:scale-[130%] portrait:hover:scale-[120%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
                       muted
                       playsInline
-                      poster="/scroll-pantallas.png"
+                      poster="/hector-admin.png"
                       className={`w-full h-auto border-neutral-900 border-[4px] video-shadow rounded-lg`}
                       onPlay={() => setIsPlaying1(true)}
                       onEnded={(e) => {
@@ -748,7 +748,7 @@ export default function App() {
                       }}
                     >
                       <source
-                        src="/scroll-pantallas.mp4"
+                        src="/hector-admin.mp4"
                         type="video/mp4"
                       />
                     </video>
@@ -775,7 +775,7 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="player absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%]  h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
+                    className="player absolute z-10 w-[22%] bottom-[10%] portrait:bottom-[0%] portrait:left-[15%] left-[15%]  portrait:hover:scale-[220%] h-fit hover:scale-[180%]  hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -833,7 +833,7 @@ export default function App() {
                   onPanEnd={onPanEnd}
                 >
                   <div
-                    className="player absolute z-10 w-[55%] top-[45%] portrait:top-[50%] right-[0%] h-fit hover:scale-[130%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player absolute z-10 w-[45%] top-[53%] portrait:top-[50%] right-[8%] h-fit hover:scale-[160%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -881,7 +881,7 @@ export default function App() {
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[1] w-[85%] top-[15%] portrait:top-[10%] right-[8%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[1] w-[80%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -970,8 +970,8 @@ export default function App() {
             </div>
             <div className="portrait:hidden col-start-6 col-end-7 row-start-5 row-end-8 rounded-full border border-white border-opacity-20 flex items-center justify-center gap-2 text-lg">
               <span className="border-b">
-                Visit site{" "}
-                <svg
+                {/* Visit site{" "} */}
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -984,7 +984,7 @@ export default function App() {
                     strokeLinejoin="round"
                     d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
                   />
-                </svg>
+                </svg> */}
               </span>
             </div>
             <div

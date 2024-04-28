@@ -322,7 +322,7 @@ section {
 }
 
 .scroll-line-dark {
-  background: rgba(30, 41, 59, 0.4) !important;
+  background: rgba(30, 41, 59, 0.3) !important;
 }
 
 
@@ -339,7 +339,7 @@ section {
 }
 
 .scroll-line-dark::after {
-  background: rgb(30, 41, 59) !important;
+  background: rgba(30, 41, 59) !important;
 }
 
 @keyframes scrolling {
@@ -363,7 +363,7 @@ section {
 
 .container:has(.player:hover) #video-bg {
   z-index: 19 !important;
-  transform: scale(120%);
+  transform: scale(130%) translate(8%, -5%) !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -381,6 +381,7 @@ section {
   .open span {
 
     width: 40px;
+
   }
 
   .open span:nth-child(2) {
