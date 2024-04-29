@@ -366,6 +366,10 @@ section {
   transform: scale(130%) translate(0%, -4%) !important;
 }
 
+/* .container:has(.player:hover) video {
+  pointer-events: none;
+} */
+
 @media screen and (max-width: 768px) {
 
   .blur-dark {

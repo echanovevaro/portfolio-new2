@@ -11,6 +11,35 @@ export default function App() {
   const [isPlaying2, setIsPlaying2] = useState(false)
   const [isPlaying3, setIsPlaying3] = useState(false)
   const ref = useRef(0)
+  const functions = {
+    1: setIsPlaying1,
+    2: setIsPlaying2,
+    3: setIsPlaying3,
+  }
+
+  const disable = (e) => {
+    console.log(e.target.parentNode.parentNode)
+    const videos = e.target.parentNode.parentNode.querySelectorAll("video")
+    console.log(videos)
+    videos.forEach((video) => {
+      if (video !== e.target) {
+        video.parentNode.style.pointerEvents = "none"
+      }
+    })
+  }
+  const enable = (e) => {
+    console.log(e.target.parentNode.parentNode)
+    const videos = e.target.parentNode.parentNode.querySelectorAll("video")
+    console.log(videos)
+    videos.forEach((video) => {
+      if (video !== e.target) {
+        video.parentNode.style.pointerEvents = null
+      } else {
+        functions[video.id](false)
+        video.load()
+      }
+    })
+  }
 
   function onPanStart(_, info) {
     ref.current = info.point.x
@@ -29,7 +58,9 @@ export default function App() {
   }
 
   const play = (e) => {
-    e.currentTarget.querySelector("video").play()
+    if (e.currentTarget.parentNode.querySelector(".player:hover")) {
+      e.currentTarget.querySelector("video").play()
+    }
   }
 
   const slideLeft = () => {
@@ -395,7 +426,7 @@ export default function App() {
           <div
             className={`${
               workCounter === 0 ? "text-slate-200" : "text-slate-900"
-            }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[10vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_1fr_2fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_2fr_3fr]`}
+            }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[10vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_3fr_2fr]`}
           >
             <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-slate-900 border-opacity-30 flex flex-col items-center justify-center">
               <h1 className=" font-thin lg:text-4xl text-3xl  uppercase block">
@@ -541,6 +572,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="2"
                       muted
                       playsInline
                       poster="/Meetup-update.png"
@@ -550,6 +582,8 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/Meetup-update.mp4"
@@ -589,6 +623,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="1"
                       muted
                       playsInline
                       poster="/Meetup-Create.png"
@@ -598,6 +633,8 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/Meetup-Create.mp4"
@@ -631,6 +668,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="3"
                       muted
                       playsInline
                       poster="/Meetup-movil.png"
@@ -641,6 +679,8 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/Meetup-movil.mp4"
@@ -689,6 +729,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="2"
                       muted
                       playsInline
                       poster="/carrusel.png"
@@ -698,6 +739,8 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/carrusel.mp4"
@@ -737,6 +780,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="1"
                       muted
                       playsInline
                       poster="/hector-admin.png"
@@ -746,6 +790,8 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/hector-admin.mp4"
@@ -779,6 +825,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="3"
                       muted
                       playsInline
                       poster="/movil.png"
@@ -789,6 +836,8 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/movil.mp4"
@@ -837,6 +886,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="2"
                       muted
                       playsInline
                       poster="/login-photografy.png"
@@ -846,6 +896,8 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/login-photografy.mp4"
@@ -885,6 +937,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="1"
                       muted
                       playsInline
                       poster="/visit-photogafhy.png"
@@ -894,6 +947,8 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/visit-photogafhy.mp4"
@@ -927,6 +982,7 @@ export default function App() {
                     onClick={(e) => play(e)}
                   >
                     <video
+                      id="3"
                       muted
                       playsInline
                       poster="/movil-photografy.png"
@@ -937,6 +993,8 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
+                      onMouseEnter={(e) => disable(e)}
+                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/movil-photografy.mp4"
@@ -988,11 +1046,11 @@ export default function App() {
               </span>
             </div>
             <div
-              className={`col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-7 landscape:col-end-8 landscape:row-start-5 landscape:row-end-6 rounded-full border ${
+              className={`col-start-5 col-end-6 row-start-6 row-end-7 landscape:col-start-7 landscape:col-end-8 landscape:row-start-5 landscape:row-end-6 rounded-full border ${
                 workCounter === 0
                   ? "border-white bg-white"
                   : " border-slate-800  bg-slate-800 "
-              } border-opacity-50 flex items-center justify-center uppercase bg-opacity-10 transition-all hover:scale-110 duration-500 origin-top-right portrait:origin-bottom-right cursor-pointer`}
+              } border-opacity-50 flex items-center justify-center uppercase bg-opacity-10 transition-all hover:scale-110 duration-500 origin-top-right cursor-pointer`}
               onClick={slideLeft}
             >
               <span className="portrait:hidden">prev</span>
@@ -1013,11 +1071,11 @@ export default function App() {
               </svg>
             </div>
             <div
-              className={`col-start-5 col-end-7 row-start-6 row-end-7 landscape:col-start-8 landscape:col-end-9 landscape:row-start-5 landscape:row-end-7 rounded-full border ${
+              className={`col-start-5 col-end-7 row-start-5 row-end-6 landscape:col-start-8 landscape:col-end-9 landscape:row-start-5 landscape:row-end-7 rounded-full border ${
                 workCounter === 0
                   ? "border-white bg-white"
                   : " border-slate-800  bg-slate-800 "
-              } border-opacity-50 flex items-center justify-center uppercase bg-opacity-15 transition-all hover:scale-[103%] duration-500 origin-top-right landscape:ps-6 cursor-pointer`}
+              } border-opacity-50 flex items-center justify-center uppercase bg-opacity-15 transition-all hover:scale-[105%] duration-500 origin-top-right portrait:origin-bottom-right  landscape:ps-6 cursor-pointer`}
               onClick={slideRight}
             >
               <span className="portrait:hidden">next</span>
@@ -1037,7 +1095,7 @@ export default function App() {
               </svg>
             </div>
             <div
-              className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-9 landscape:row-start-7 landscape:row-end-8 rounded-full landscape:bg-white landscape:bg-opacity-[10%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
+              className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-9 landscape:row-start-7 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
               onClick={scroll}
             >
               scroll
