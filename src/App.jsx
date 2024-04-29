@@ -58,7 +58,13 @@ export default function App() {
   }
 
   const play = (e) => {
-    if (e.currentTarget.parentNode.querySelector(".player:hover")) {
+    console.log(e.currentTarget.parentNode.querySelector(".player:hover"))
+    console.log(e.currentTarget)
+    if (
+      e.currentTarget.parentNode.querySelector(".player:hover") &&
+      e.currentTarget.parentNode.querySelector(".player:hover") ==
+        e.currentTarget
+    ) {
       e.currentTarget.querySelector("video").play()
     }
   }
