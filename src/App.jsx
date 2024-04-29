@@ -18,9 +18,8 @@ export default function App() {
   }
 
   const disable = (e) => {
-    console.log(e.target.parentNode.parentNode)
+    console.log("disable")
     const videos = e.target.parentNode.parentNode.querySelectorAll("video")
-    console.log(videos)
     videos.forEach((video) => {
       if (video !== e.target) {
         video.parentNode.style.pointerEvents = "none"
@@ -28,9 +27,8 @@ export default function App() {
     })
   }
   const enable = (e) => {
-    console.log(e.target.parentNode.parentNode)
+    console.log("enable")
     const videos = e.target.parentNode.parentNode.querySelectorAll("video")
-    console.log(videos)
     videos.forEach((video) => {
       if (video !== e.target) {
         video.parentNode.style.pointerEvents = null
@@ -46,6 +44,7 @@ export default function App() {
   }
 
   function onPanEnd(_, info) {
+    console.log("pan")
     if (info.point.x < ref.current) {
       slideRight()
     } else if (info.point.x > ref.current) {
@@ -58,14 +57,14 @@ export default function App() {
   }
 
   const play = (e) => {
-    console.log(e.currentTarget.parentNode.querySelector(".player:hover"))
-    console.log(e.currentTarget)
+    console.log("play")
     if (
       e.currentTarget.parentNode.querySelector(".player:hover") &&
       e.currentTarget.parentNode.querySelector(".player:hover") ==
         e.currentTarget
     ) {
       e.currentTarget.querySelector("video").play()
+      disable(e)
     }
   }
 
@@ -396,7 +395,7 @@ export default function App() {
           </div>
         </div>
         <div className="text-white  font-extralight absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[10%] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_5fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_3fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_1fr_2fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_2fr_3fr]">
-          <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-15 border border-neutral-700 shadow-md portrait:flex portrait:items-center portrait:justify-center">
+          <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-15 border border-neutral-700 portrait:flex portrait:items-center portrait:justify-center">
             <h1 className="landscape:ml-[35%] landscape:mt-[50%] uppercase lg:text-base text-[0.75rem]">
               <span className="font-medium ">álvaro</span> riaño
             </h1>
@@ -588,7 +587,6 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
@@ -639,7 +637,6 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
@@ -685,7 +682,6 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
@@ -745,7 +741,6 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
@@ -796,7 +791,6 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
@@ -842,7 +836,6 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
@@ -902,7 +895,6 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
@@ -953,7 +945,6 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
@@ -999,7 +990,6 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
-                      onMouseEnter={(e) => disable(e)}
                       onMouseLeave={(e) => enable(e)}
                     >
                       <source
