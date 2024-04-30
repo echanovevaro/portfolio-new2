@@ -96,8 +96,6 @@ export default function App() {
       setFilter("blur-bw")
     } else if (scrollY < innerHeight && filter !== "blur-dark") {
       setFilter("blur-dark")
-    } else if (scrollY > innerHeight && filter !== "contact") {
-      setFilter("contact")
     }
   }, [filter])
 
@@ -380,7 +378,7 @@ export default function App() {
               : filter === "contact"
               ? "bg-[#66808b]"
               : ""
-          } transition ease-out duration-1000`}
+          }`}
         >
           <div className={`bouncing-blobs-glass ${filter}`} />
           <div className={"bouncing-blobs"}>

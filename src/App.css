@@ -82,8 +82,7 @@ section {
   -webkit-backdrop-filter: blur(140px);
 }
 
-.blur-bw,
-.contact {
+.blur-bw {
   backdrop-filter: blur(140px) brightness(0.9) contrast(0.9);
   -webkit-backdrop-filter: blur(120px);
 }
@@ -366,8 +365,7 @@ section {
     -webkit-backdrop-filter: blur(60px);
   }
 
-  .blur-bw,
-  .contact {
+  .blur-bw {
     backdrop-filter: blur(60px) brightness(0.9) saturate(1) contrast(0.9);
     -webkit-backdrop-filter: blur(60px);
   }
