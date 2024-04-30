@@ -1,6 +1,6 @@
 import "./App.css"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 
 const NUM_WORKS = 3
 
@@ -16,6 +16,8 @@ export default function App() {
     2: setIsPlaying2,
     3: setIsPlaying3,
   }
+  const refSection2 = useRef(null)
+  const isInView = useInView(refSection2, { once: true, amount: 0.9 })
 
   const disable = (e) => {
     const videos = e.target.parentNode.parentNode.querySelectorAll("video")
@@ -413,6 +415,7 @@ export default function App() {
       <section
         className="w-[100vw] h-[100vh] text-sm"
         id="works"
+        ref={refSection2}
       >
         <div className="relative w-full h-full overflow-hidden">
           <div
@@ -420,7 +423,14 @@ export default function App() {
               workCounter === 0 ? "text-slate-200" : "text-slate-900"
             }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[10vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_3fr_2fr]`}
           >
-            <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-slate-900 border-opacity-30 flex flex-col items-center justify-center">
+            <div
+              className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-slate-900 border-opacity-30 flex flex-col items-center justify-center"
+              style={{
+                transform: isInView ? "unset" : "scale(0)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0s",
+              }}
+            >
               <h1 className=" font-thin lg:text-4xl text-3xl  uppercase block">
                 works
               </h1>
@@ -428,7 +438,14 @@ export default function App() {
                 <b>0{workCounter + 1}</b>| 0{NUM_WORKS}
               </span>
             </div>
-            <div className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col justify-items-start justify-center text-left px-8 landscape:px-12 font-extralight border border-slate-900 border-opacity-15">
+            <div
+              className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] flex flex-col justify-items-start justify-center text-left px-8 landscape:px-12 font-extralight border border-slate-900 border-opacity-15"
+              style={{
+                transform: isInView ? "unset" : "scale(0)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+              }}
+            >
               {workCounter === 0 && (
                 <>
                   <h1
@@ -535,10 +552,31 @@ export default function App() {
                 </>
               )}
             </div>
-            <div className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"></div>
-            <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
+            <div
+              className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"
+              style={{
+                transform: isInView ? "unset" : "scale(0)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s",
+              }}
+            ></div>
+            <div
+              className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"
+              style={{
+                transform: isInView ? "unset" : "scale(0)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s",
+              }}
+            ></div>
             <div className="portrait:hidden col-start-4 col-end-5 row-start-2 row-end-4 rounded-full border border-white border-opacity-20"></div>
-            <div className="container col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full flex items-center justify-center">
+            <div
+              className="container col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full flex items-center justify-center"
+              style={{
+                transform: isInView ? "unset" : "scale(0)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.9s",
+              }}
+            >
               {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
               {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
               {/* <img
@@ -1035,6 +1073,11 @@ export default function App() {
                   : " border-slate-800  bg-slate-800 "
               } border-opacity-50 flex items-center justify-center uppercase bg-opacity-10 transition-all hover:scale-110 duration-500 origin-top-right cursor-pointer`}
               onClick={slideLeft}
+              style={{
+                transform: isInView ? "unset" : "scale(0)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.2s",
+              }}
             >
               <span className="portrait:hidden">prev</span>
 
@@ -1060,6 +1103,11 @@ export default function App() {
                   : " border-slate-800  bg-slate-800 "
               } border-opacity-50 flex items-center justify-center uppercase bg-opacity-15 transition-all hover:scale-[105%] duration-500 origin-top-right portrait:origin-bottom-right  landscape:ps-6 cursor-pointer`}
               onClick={slideRight}
+              style={{
+                transform: isInView ? "unset" : "scale(0)",
+                opacity: isInView ? 1 : 0,
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.2s",
+              }}
             >
               <span className="portrait:hidden">next</span>
               <svg
