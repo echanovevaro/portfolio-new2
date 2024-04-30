@@ -55,7 +55,7 @@ section {
 }
 
 .bouncing-blob {
-  width: 24vw;
+  width: 26vw;
   aspect-ratio: 1;
   border-radius: 50%;
   will-change: transform;
@@ -82,7 +82,8 @@ section {
   -webkit-backdrop-filter: blur(140px);
 }
 
-.blur-bw {
+.blur-bw,
+.contact {
   backdrop-filter: blur(140px) brightness(0.9) contrast(0.9);
   -webkit-backdrop-filter: blur(120px);
 }
@@ -117,7 +118,7 @@ section {
   width: 20vw;
 }
 
-.bouncing-blobs-container:has(.blur-bw) .bouncing-blob--red {
+/* .bouncing-blobs-container:has(.blur-bw) .bouncing-blob--red {
   background: #f7444e;
 }
 
@@ -129,7 +130,7 @@ section {
 .bouncing-blobs-container:has(.blur-bw) .bouncing-blob--green {
   background: #102C57;
   width: 20vw;
-}
+} */
 
 
 
@@ -365,7 +366,8 @@ section {
     -webkit-backdrop-filter: blur(60px);
   }
 
-  .blur-bw {
+  .blur-bw,
+  .contact {
     backdrop-filter: blur(60px) brightness(0.9) saturate(1) contrast(0.9);
     -webkit-backdrop-filter: blur(60px);
   }

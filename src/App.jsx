@@ -89,12 +89,15 @@ export default function App() {
     setIsPlaying1(false)
     setIsPlaying2(false)
     setIsPlaying3(false)
+    setWorkCounter(0)
     const { scrollY, innerHeight } = window
 
     if (scrollY >= innerHeight && filter !== "blur-bw") {
       setFilter("blur-bw")
     } else if (scrollY < innerHeight && filter !== "blur-dark") {
       setFilter("blur-dark")
+    } else if (scrollY > innerHeight && filter !== "contact") {
+      setFilter("contact")
     }
   }, [filter])
 
@@ -366,12 +369,18 @@ export default function App() {
       </main> */}
         <div
           className={`bouncing-blobs-container ${
-            filter === "blur-dark" || workCounter === 0
+            filter === "blur-dark"
               ? "bg-[#002c3e]"
-              : workCounter === 1
+              : filter === "blur-bw" && workCounter === 0
+              ? "bg-[#325664]"
+              : filter === "blur-bw" && workCounter === 1
               ? "bg-[#aee2e2de]"
-              : "bg-[#ecfbfbc8]"
-          }`}
+              : filter === "blur-bw" && workCounter === 2
+              ? "bg-[#ecfbfbc8]"
+              : filter === "contact"
+              ? "bg-[#66808b]"
+              : ""
+          } transition ease-out duration-1000`}
         >
           <div className={`bouncing-blobs-glass ${filter}`} />
           <div className={"bouncing-blobs"}>
@@ -574,7 +583,8 @@ export default function App() {
               style={{
                 transform: isInView ? "unset" : "scale(0)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.9s",
+                filter: isInView ? "brightness(1)" : "brightness(0)",
+                transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.9s",
               }}
             >
               {/* <div className="slide landscape:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-psd.png')] portrait:bg-[url('/desktop-computer-laptop-tablet-and-smartphone-12-04-movil.png')] landscape:bg-[2rem] portrait:bg-[1rem] bg-contain bg-no-repeat absolute top-0 left-0 w-full h-full"></div> */}
@@ -1140,6 +1150,36 @@ export default function App() {
             </div>
             <div className="col-start-4 col-end-5"></div>
           </div>
+        </div>
+      </section>
+      <section
+        className="w-[100vw] h-[100vh] text-sm relative"
+        id="contact"
+      >
+        <div className="text-white  font-extralight absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[10%] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_5fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_3fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_1fr_2fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_2fr_3fr]">
+          <div className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-15 portrait:flex portrait:items-center portrait:justify-center">
+            <h1 className="landscape:ml-[35%] landscape:mt-[50%] uppercase lg:text-base text-[0.75rem]">
+              <span className="font-medium ">álvaro</span> riaño
+            </h1>
+          </div>
+          <div className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[2%] portrait: flex items-start justify-center">
+            <div className="landscape:ml-[6%] landscape:pt-[30%] pt-[50%] uppercase lg:text-lg text-sm portrait:flex portrait:flex-col portrait:items-end portrait:justify-center">
+              <h1>
+                <span className="font-medium ">web</span> developer
+              </h1>
+              <span className="lg:text-5xl text-3xl uppercase block  color">
+                portfolio
+              </span>
+            </div>
+          </div>
+          <div className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"></div>
+          <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
+          <div className="portrait:hidden col-start-4 col-end-5 row-start-2 row-end-4 rounded-full border border-white border-opacity-20"></div>
+          <div className="col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full border border-white border-opacity-20 relative">
+            <div className="text lg:text-2xl text-lg font-extralight absolute landscape:top-[62%] top-[59%] left-[10%]" />
+          </div>
+          <div className="col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-6 landscape:col-end-7 landscape:row-start-5 landscape:row-end-7 rounded-full border border-white border-opacity-20"></div>
+          <div className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-8 landscape:row-start-6 landscape:row-end-7 rounded-full bg-white bg-opacity-[2%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"></div>
         </div>
       </section>
     </>
