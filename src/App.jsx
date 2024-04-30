@@ -18,7 +18,6 @@ export default function App() {
   }
 
   const disable = (e) => {
-    console.log("disable")
     const videos = e.target.parentNode.parentNode.querySelectorAll("video")
     videos.forEach((video) => {
       if (video !== e.target) {
@@ -27,7 +26,6 @@ export default function App() {
     })
   }
   const enable = (e) => {
-    console.log("enable")
     const videos = e.target.parentNode.parentNode.querySelectorAll("video")
     videos.forEach((video) => {
       if (video !== e.target) {
@@ -57,7 +55,6 @@ export default function App() {
   }
 
   const play = (e) => {
-    console.log("play")
     if (
       e.currentTarget.parentNode.querySelector(".player:hover") &&
       e.currentTarget.parentNode.querySelector(".player:hover") ==
@@ -309,18 +306,10 @@ export default function App() {
           <ul className="sub-menu">
             <li>
               <a
-                href="#about"
-                title="about"
+                href="#home"
+                title="home"
               >
-                education
-              </a>
-            </li>
-            <li>
-              <a
-                href="#skills"
-                title="skills"
-              >
-                skills
+                home
               </a>
             </li>
             <li>
@@ -329,14 +318,6 @@ export default function App() {
                 title="jobs"
               >
                 works
-              </a>
-            </li>
-            <li>
-              <a
-                href="#experience"
-                title="experience"
-              >
-                experience
               </a>
             </li>
             <li>
@@ -727,7 +708,7 @@ export default function App() {
                   onPanEnd={onPanEnd}
                 >
                   <div
-                    className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%]  portrait:right-[2%] h-fit hover:scale-[150%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] portrait:right-[2%] h-fit hover:scale-[150%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -881,7 +862,7 @@ export default function App() {
                   onPanEnd={onPanEnd}
                 >
                   <div
-                    className="player absolute z-10 w-[45%] top-[53%] portrait:top-[50%] right-[8%] h-fit hover:scale-[160%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player absolute z-10 w-[45%] top-[53%] portrait:top-[50%] right-[6%] h-fit hover:scale-[160%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -931,7 +912,7 @@ export default function App() {
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[1] w-[80%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[10%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[1] w-[80%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[15%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
