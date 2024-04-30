@@ -93,14 +93,14 @@ export default function App() {
     const { scrollY, innerHeight } = window
 
     if (
-      scrollY > innerHeight - 100 &&
-      scrollY < innerHeight + 100 &&
+      scrollY > innerHeight - 200 &&
+      scrollY < innerHeight + 200 &&
       filter !== "blur-bw"
     ) {
       setFilter("blur-bw")
-    } else if (scrollY < innerHeight - 100 && filter !== "blur-dark") {
+    } else if (scrollY < innerHeight - 200 && filter !== "blur-dark") {
       setFilter("blur-dark")
-    } else if (scrollY > innerHeight + 100 && filter !== "contact") {
+    } else if (scrollY > innerHeight + 200 && filter !== "contact") {
       setFilter("contact")
     }
   }, [filter])
