@@ -92,10 +92,12 @@ export default function App() {
     setWorkCounter(0)
     const { scrollY, innerHeight } = window
 
-    if (scrollY >= innerHeight && filter !== "blur-bw") {
+    if (scrollY == innerHeight && filter !== "blur-bw") {
       setFilter("blur-bw")
     } else if (scrollY < innerHeight && filter !== "blur-dark") {
       setFilter("blur-dark")
+    } else if (scrollY > innerHeight && filter !== "contact") {
+      setFilter("contact")
     }
   }, [filter])
 
@@ -375,10 +377,8 @@ export default function App() {
               ? "bg-[#aee2e2de]"
               : filter === "blur-bw" && workCounter === 2
               ? "bg-[#ecfbfbc8]"
-              : filter === "contact"
-              ? "bg-[#66808b]"
-              : ""
-          }`}
+              : "bg-[#66808b]"
+          } transition ease-out duration-1000`}
         >
           <div className={`bouncing-blobs-glass ${filter}`} />
           <div className={"bouncing-blobs"}>
