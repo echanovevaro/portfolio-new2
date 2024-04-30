@@ -314,8 +314,8 @@ export default function App() {
             </li>
             <li>
               <a
-                href="#jobs"
-                title="jobs"
+                href="#works"
+                title="works"
               >
                 works
               </a>
@@ -340,7 +340,10 @@ export default function App() {
             : "hidden"
         }`}
       ></div> */}
-      <section className="w-full h-[100vh] text-sm relative">
+      <section
+        className="w-full h-[100vh] text-sm relative"
+        id="home"
+      >
         {/* <main className="absolute top-0 left-0 bg-gradient-to-r from-[#333] via-black to-black h-screen w-full">
 
         <div className="h-screen w-[300px] absolute top-0 right-0 overflow-hidden">
@@ -407,7 +410,10 @@ export default function App() {
           </div>
         </div>
       </section>
-      <section className="w-[100vw] h-[100vh] text-sm">
+      <section
+        className="w-[100vw] h-[100vh] text-sm"
+        id="works"
+      >
         <div className="relative w-full h-full overflow-hidden">
           <div
             className={`${
