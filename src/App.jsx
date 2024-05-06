@@ -1078,7 +1078,7 @@ export default function App() {
                 </svg> */}
               </span>
             </div>
-            <div
+            {/* <div
               className={`landscape:hidden col-start-1 col-end-2 row-start-6 row-end-7 flex items-center justify-center gap-2`}
             >
               {new Array(NUM_WORKS)
@@ -1094,7 +1094,7 @@ export default function App() {
                     }`}
                   ></div>
                 ))}
-            </div>
+            </div> */}
 
             <div
               className={`col-start-5 col-end-6 row-start-6 row-end-7 landscape:col-start-7 landscape:col-end-8 landscape:row-start-5 landscape:row-end-6 rounded-full border ${
@@ -1186,10 +1186,10 @@ export default function App() {
           </div>
           <div className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[2%] portrait: flex items-start justify-center">
             <div className="landscape:ml-[6%] landscape:pt-[30%] pt-[50%] uppercase lg:text-lg text-sm portrait:flex portrait:flex-col portrait:items-end portrait:justify-center">
+              <h1 className="text-[0.75rem] font-thin">Remote Madrid</h1>
               <span className="lg:text-5xl text-3xl uppercase block font-thin">
                 contact
               </span>
-              <h1 className="text-[0.75rem] font-thin">Remote from Madrid</h1>
             </div>
           </div>
           <div className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"></div>
