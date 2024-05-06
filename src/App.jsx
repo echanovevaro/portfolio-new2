@@ -411,7 +411,7 @@ export default function App() {
           <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
           <div className="portrait:hidden col-start-4 col-end-5 row-start-2 row-end-4 rounded-full border border-white border-opacity-20"></div>
           <div className="col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full border border-white border-opacity-20 relative">
-            <div className="text lg:text-2xl text-lg font-extralight absolute landscape:top-[62%] top-[59%] left-[10%]" />
+            <div className="text lg:text-2xl text-base font-extralight absolute landscape:top-[62%] top-[59%] left-[10%]" />
           </div>
           <div className="col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-6 landscape:col-end-7 landscape:row-start-5 landscape:row-end-7 rounded-full border border-white border-opacity-20"></div>
           <div
@@ -442,7 +442,7 @@ export default function App() {
                 transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0s",
               }}
             >
-              <h1 className=" font-thin lg:text-4xl text-3xl  uppercase block">
+              <h1 className="title font-thin lg:text-4xl text-3xl  uppercase block">
                 works
               </h1>
               <span className="lg:text-xl text-[0.75rem] font-extralight">
@@ -460,7 +460,7 @@ export default function App() {
               {workCounter === 0 && (
                 <>
                   <h1
-                    className="lg:text-2xl text-balance font-light uppercase block mb-2 cursor-pointer"
+                    className="project lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open("https://hectoromero.art", "_blank")
                     }
@@ -481,10 +481,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Artist website with admin mode, UX/UI Fullstack.
                   </p>
-                  <p className="text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Tailwind, Framer-Motion
                     and firebase.
                   </p>
@@ -493,7 +493,7 @@ export default function App() {
               {workCounter === 1 && (
                 <>
                   <h1
-                    className="lg:text-2xl text-lg font-light uppercase block mb-2 cursor-pointer"
+                    className="project lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "https://next-js-meetup-crud-14.vercel.app/",
@@ -517,10 +517,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.8rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Meetusp CRUD
                   </p>
-                  <p className="text-[0.8rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Next14, TanStack Query, React Router, Bootstrap, and
                     MongoDB.
                   </p>
@@ -529,7 +529,7 @@ export default function App() {
               {workCounter === 2 && (
                 <>
                   <h1
-                    className="lg:text-2xl text-lg font-light uppercase block mb-2 cursor-pointer"
+                    className="project lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "https://jocular-sawine-5cf217.netlify.app/photographers",
@@ -553,10 +553,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="text-[0.8rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Platform for professional photographers
                   </p>
-                  <p className="text-[0.8rem] portrait:text-[0.75rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Bootstrap, and
                     firebase.
                   </p>
@@ -1079,6 +1079,24 @@ export default function App() {
               </span>
             </div>
             <div
+              className={`landscape:hidden col-start-1 col-end-2 row-start-6 row-end-7 flex items-center justify-center gap-2`}
+            >
+              {new Array(NUM_WORKS)
+                .fill("")
+                .map((_, i) => i)
+                .map((el) => (
+                  <div
+                    key={el}
+                    className={`w-2 h-2 rounded-full ${
+                      workCounter === 0 ? "bg-white" : "bg-slate-900"
+                    } ${
+                      workCounter === el ? "bg-opacity-50" : "bg-opacity-10"
+                    }`}
+                  ></div>
+                ))}
+            </div>
+
+            <div
               className={`col-start-5 col-end-6 row-start-6 row-end-7 landscape:col-start-7 landscape:col-end-8 landscape:row-start-5 landscape:row-end-6 rounded-full border ${
                 workCounter === 0
                   ? "border-white bg-white"
@@ -1088,7 +1106,8 @@ export default function App() {
               style={{
                 transform: isInView ? "unset" : "scale(0)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.2s",
+                transition:
+                  "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.2s, background-color .01s linear, color .01s linear",
               }}
             >
               <span className="portrait:hidden">prev</span>
@@ -1118,7 +1137,8 @@ export default function App() {
               style={{
                 transform: isInView ? "unset" : "scale(0)",
                 opacity: isInView ? 1 : 0,
-                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.2s",
+                transition:
+                  "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.2s, background-color .01s linear, color .01s linear, border-color .01s linear, border-opacity .01s linear",
               }}
             >
               <span className="portrait:hidden">next</span>
@@ -1166,11 +1186,9 @@ export default function App() {
           </div>
           <div className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[2%] portrait: flex items-start justify-center">
             <div className="landscape:ml-[6%] landscape:pt-[30%] pt-[50%] uppercase lg:text-lg text-sm portrait:flex portrait:flex-col portrait:items-end portrait:justify-center">
-              <h1>
-                <span className="font-medium ">web</span> developer
-              </h1>
-              <span className="lg:text-5xl text-3xl uppercase block  color">
-                portfolio
+              <h1 className="text-[0.75rem] font-thin">Remote from Madrid</h1>
+              <span className="lg:text-5xl text-3xl uppercase block font-thin">
+                contact
               </span>
             </div>
           </div>
@@ -1178,10 +1196,43 @@ export default function App() {
           <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
           <div className="portrait:hidden col-start-4 col-end-5 row-start-2 row-end-4 rounded-full border border-white border-opacity-20"></div>
           <div className="col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full border border-white border-opacity-20 relative">
-            <div className="text lg:text-2xl text-lg font-extralight absolute landscape:top-[62%] top-[59%] left-[10%]" />
+            <div className="lg:text-3xl text-2xl font-thin absolute top-[40%] left-[10%] lg:leading-6 leading-5">
+              <h1 className="uppercase">Send me a message</h1>
+              <a
+                className="text-base"
+                href="mailto:echanovevaro@gmail.com"
+              >
+                echanovevaro@gmail.com
+              </a>
+
+              <a
+                className="block leading-10 text-base pt-4"
+                href="https://www.linkedin.com/in/alvaroriañoechanove"
+                target="_blank"
+              >
+                Linkedin{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1}
+                  stroke="currentColor"
+                  className="w-3 h-3 lg:h-4 lg:w-4 inline"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
           <div className="col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-6 landscape:col-end-7 landscape:row-start-5 landscape:row-end-7 rounded-full border border-white border-opacity-20"></div>
           <div className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-8 landscape:row-start-6 landscape:row-end-7 rounded-full bg-white bg-opacity-[2%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"></div>
+        </div>
+        <div className="fixed bottom-3 right-3 text-white text-xs font-thin">
+          &copy; Álvaro Riaño 2024
         </div>
       </section>
     </>
