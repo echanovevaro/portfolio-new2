@@ -460,7 +460,7 @@ export default function App() {
               {workCounter === 0 && (
                 <>
                   <h1
-                    className="project lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
+                    className="project lg:text-2xl text-base font-extralight uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open("https://hectoromero.art", "_blank")
                     }
@@ -1107,7 +1107,7 @@ export default function App() {
                 transform: isInView ? "unset" : "scale(0)",
                 opacity: isInView ? 1 : 0,
                 transition:
-                  "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.2s, background-color .01s linear, color .01s linear",
+                  "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.2s, background-color .01s linear, color .01s linear, border-color .01s linear, border-opacity .01s linear",
               }}
             >
               <span className="portrait:hidden">prev</span>
@@ -1186,10 +1186,10 @@ export default function App() {
           </div>
           <div className="col-start-4 col-end-8 row-start-1 row-end-4 landscape:col-start-1 landscape:col-end-5 landscape:row-start-4 landscape:row-end-8 rounded-full bg-white bg-opacity-[2%] portrait: flex items-start justify-center">
             <div className="landscape:ml-[6%] landscape:pt-[30%] pt-[50%] uppercase lg:text-lg text-sm portrait:flex portrait:flex-col portrait:items-end portrait:justify-center">
-              <h1 className="text-[0.75rem] font-thin">Remote from Madrid</h1>
               <span className="lg:text-5xl text-3xl uppercase block font-thin">
                 contact
               </span>
+              <h1 className="text-[0.75rem] font-thin">Remote from Madrid</h1>
             </div>
           </div>
           <div className="col-start-3 col-end-4 row-start-2 row-end-3 landscape:col-start-2 landscape:col-end-3 landscape:row-start-2 landscape:row-end-3 rounded-full border border-white border-opacity-20"></div>
@@ -1231,7 +1231,7 @@ export default function App() {
           <div className="col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-6 landscape:col-end-7 landscape:row-start-5 landscape:row-end-7 rounded-full border border-white border-opacity-20"></div>
           <div className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-8 landscape:row-start-6 landscape:row-end-7 rounded-full bg-white bg-opacity-[2%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"></div>
         </div>
-        <div className="fixed bottom-3 right-3 text-white text-xs font-thin">
+        <div className="absolute bottom-3 right-6 text-white text-xs font-thin">
           &copy; Álvaro Riaño 2024
         </div>
       </section>

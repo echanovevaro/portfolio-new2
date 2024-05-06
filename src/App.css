@@ -399,7 +399,7 @@ section {
   }
 }
 
-@media screen and (max-height: 749px) {
+@media screen and (max-height: 749px) and (max-width: 768px) {
   .project {
     font-size: 0.75rem !important;
     margin-bottom: 0.2rem !important;
