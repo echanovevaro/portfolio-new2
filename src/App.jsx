@@ -379,13 +379,13 @@ export default function App() {
           className={`bouncing-blobs-container ${
             filter === "blur-dark"
               ? "bg-[#002c3e]"
-              : filter === "blur-bw" && workCounter === 0
-              ? "bg-[#325664]"
-              : filter === "blur-bw" && workCounter === 1
-              ? "bg-[#aee2e2de]"
-              : filter === "blur-bw" && workCounter === 2
-              ? "bg-[#ecfbfbc8]"
-              : "bg-[#66808b]"
+              : // : filter === "blur-bw" && workCounter === 0
+                // ? "bg-[#325664]"
+                // : filter === "blur-bw" && workCounter === 1
+                // ? "bg-[#aee2e2de]"
+                // : filter === "blur-bw" && workCounter === 2
+                // ? "bg-[#ecfbfbc8]"
+                "bg-[#66808b]"
           } transition ease-out duration-1000`}
         >
           <div className={`bouncing-blobs-glass ${filter}`} />
