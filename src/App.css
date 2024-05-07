@@ -118,6 +118,10 @@ section {
   width: 20vw;
 }
 
+.dud {
+  color: #999;
+}
+
 /* .bouncing-blobs-container:has(.blur-bw) .bouncing-blob--red {
   background: #f7444e;
 }

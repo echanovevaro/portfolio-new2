@@ -113,6 +113,40 @@ export default function App() {
   }
 
   useEffect(() => {
+    window.addEventListener("scroll", onScroll)
+
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+    }
+  }, [onScroll])
+
+  const MIN_SPEED = 1
+  const MAX_SPEED = 1.5
+
+  function randomNumber(min, max) {
+    return Math.random() * (max - min) + min
+  }
+
+  useEffect(() => {
+    const imgLoader = function (src) {
+      var link = document.createElement("link")
+      link.rel = "preload"
+      link.as = "image"
+      link.href = src
+
+      document.head.appendChild(link)
+    }
+
+    imgLoader("/carrusel.png")
+    imgLoader("/scroll-pantallas.png")
+    imgLoader("/movil.png")
+    imgLoader("/Meetup-update.png")
+    imgLoader("/Meetup-Create.png")
+    imgLoader("/Meetup-movil.png")
+    imgLoader("/login-photografy.png")
+    imgLoader("/visit-photogafhy.png")
+    imgLoader("/movil-photografy.png")
+
     class Blob {
       constructor(el) {
         this.el = el
@@ -177,8 +211,9 @@ export default function App() {
     }
 
     menu.addEventListener("click", toggleMenu)
-    window.addEventListener("scroll", onScroll)
+
     initBlobs()
+
     class TextScramble {
       constructor(el) {
         this.el = el
@@ -250,50 +285,19 @@ export default function App() {
     let counter = 0
     const next = () => {
       fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 2000)
+        setTimeout(next, 800)
       })
       counter = (counter + 1) % phrases.length
     }
 
     next()
-    return () => {
-      window.removeEventListener("scroll", onScroll)
-      menu.removeEventListener("click", toggleMenu)
-    }
-  }, [onScroll])
-
-  const MIN_SPEED = 1
-  const MAX_SPEED = 1.5
-
-  function randomNumber(min, max) {
-    return Math.random() * (max - min) + min
-  }
-
-  useEffect(() => {
-    const imgLoader = function (src) {
-      var link = document.createElement("link")
-      link.rel = "preload"
-      link.as = "image"
-      link.href = src
-
-      document.head.appendChild(link)
-    }
-
-    imgLoader("/carrusel.png")
-    imgLoader("/scroll-pantallas.png")
-    imgLoader("/movil.png")
-    imgLoader("/Meetup-update.png")
-    imgLoader("/Meetup-Create.png")
-    imgLoader("/Meetup-movil.png")
-    imgLoader("/login-photografy.png")
-    imgLoader("/visit-photogafhy.png")
-    imgLoader("/movil-photografy.png")
 
     return () => {
       const links = document.querySelector('link[rel="preload"]')
       if (links && links.length > 0) {
         links.forEach((el) => el.remove())
       }
+      menu.removeEventListener("click", toggleMenu)
     }
   }, [])
 
@@ -411,7 +415,7 @@ export default function App() {
           <div className="col-start-2 col-end-4 row-start-3 row-end-4 rounded-full bg-white bg-opacity-50"></div>
           <div className="portrait:hidden col-start-4 col-end-5 row-start-2 row-end-4 rounded-full border border-white border-opacity-20"></div>
           <div className="col-start-1 col-end-8 row-start-4 row-end-5 landscape:col-start-5 landscape:col-end-6 landscape:row-start-1 landscape:row-end-8 rounded-full border border-white border-opacity-20 relative">
-            <div className="text lg:text-2xl text-base font-extralight absolute landscape:top-[62%] top-[59%] left-[10%]" />
+            <div className="text lg:text-2xl text-base font-extralight absolute landscape:top-[62%] top-[59%] left-[10%]"></div>
           </div>
           <div className="col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-6 landscape:col-end-7 landscape:row-start-5 landscape:row-end-7 rounded-full border border-white border-opacity-20"></div>
           <div
@@ -460,7 +464,7 @@ export default function App() {
               {workCounter === 0 && (
                 <>
                   <h1
-                    className="project lg:text-2xl text-base font-extralight uppercase block mb-2 cursor-pointer"
+                    className="project landscape:hidden lg:text-2xl text-base font-extralight uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open("https://hectoromero.art", "_blank")
                     }
@@ -481,10 +485,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Artist website with admin mode, UX/UI Fullstack.
                   </p>
-                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Tailwind, Framer-Motion
                     and firebase.
                   </p>
@@ -493,7 +497,7 @@ export default function App() {
               {workCounter === 1 && (
                 <>
                   <h1
-                    className="project lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
+                    className="project landscape:hidden  lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "https://next-js-meetup-crud-14.vercel.app/",
@@ -517,10 +521,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Meetusp CRUD
                   </p>
-                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Next14, TanStack Query, React Router, Bootstrap, and
                     MongoDB.
                   </p>
@@ -529,7 +533,7 @@ export default function App() {
               {workCounter === 2 && (
                 <>
                   <h1
-                    className="project lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
+                    className="project landscape:hidden  lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open(
                         "https://jocular-sawine-5cf217.netlify.app/photographers",
@@ -553,10 +557,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     Platform for professional photographers
                   </p>
-                  <p className="description text-[0.75rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
                     React, TanStack Query, React Router, Bootstrap, and
                     firebase.
                   </p>
@@ -1059,10 +1063,14 @@ export default function App() {
                 </motion.div>
               )}
             </div>
-            <div className="portrait:hidden col-start-6 col-end-7 row-start-5 row-end-8 rounded-full border border-white border-opacity-20 flex items-center justify-center gap-2 text-lg">
-              <span className="border-b">
-                {/* Visit site{" "} */}
-                {/* <svg
+            <div
+              className={`portrait:hidden col-start-6 col-end-7 row-start-5 row-end-8 rounded-full hover:border-opacity-40 border ${
+                workCounter === 0 ? " border-white" : "border-slate-800"
+              } border-opacity-15 flex items-center justify-center gap-2`}
+            >
+              {/* <span className="border-b"> */}
+              {/* Visit site{" "} */}
+              {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -1076,7 +1084,85 @@ export default function App() {
                     d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
                   />
                 </svg> */}
-              </span>
+              {/* </span> */}
+              {workCounter === 0 && (
+                <h1
+                  className="project  lg:text-lg text-base font-extralight uppercase block mb-2 cursor-pointer"
+                  onClick={() =>
+                    window.open("https://hectoromero.art", "_blank")
+                  }
+                >
+                  HECTOROMERO{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1}
+                    stroke="currentColor"
+                    className="w-3 h-3 lg:h-4 lg:w-4 inline"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                    />
+                  </svg>
+                </h1>
+              )}
+              {workCounter === 1 && (
+                <h1
+                  className="project lg:text-lg text-base font-light uppercase block mb-2 cursor-pointer"
+                  onClick={() =>
+                    window.open(
+                      "https://next-js-meetup-crud-14.vercel.app/",
+                      "_blank"
+                    )
+                  }
+                >
+                  MEETUPS{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1}
+                    stroke="currentColor"
+                    className="w-3 h-3 lg:h-4 lg:w-4 inline"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                    />
+                  </svg>
+                </h1>
+              )}
+              {workCounter === 2 && (
+                <h1
+                  className="project lg:text-lg text-base font-light uppercase block mb-2 cursor-pointer"
+                  onClick={() =>
+                    window.open(
+                      "https://jocular-sawine-5cf217.netlify.app/photographers",
+                      "_blank"
+                    )
+                  }
+                >
+                  PHOTOGRA<b>FY</b>{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1}
+                    stroke="currentColor"
+                    className="w-3 h-3 lg:h-4 lg:w-4 inline"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                    />
+                  </svg>
+                </h1>
+              )}
             </div>
             {/* <div
               className={`landscape:hidden col-start-1 col-end-2 row-start-6 row-end-7 flex items-center justify-center gap-2`}
@@ -1128,7 +1214,7 @@ export default function App() {
               </svg>
             </div>
             <div
-              className={`col-start-5 col-end-7 row-start-5 row-end-6 landscape:col-start-8 landscape:col-end-9 landscape:row-start-5 landscape:row-end-7 rounded-full border ${
+              className={`col-start-5 col-end-7 row-start-5 row-end-6 landscape:col-start-8 landscape:col-end-9 landscape:row-start-5 landscape:row-end-7 rounded-full border duration-500 cursor-pointer ${
                 workCounter === 0
                   ? "border-white bg-white"
                   : " border-slate-800  bg-slate-800 "
@@ -1158,7 +1244,7 @@ export default function App() {
               </svg>
             </div>
             <div
-              className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-9 landscape:row-start-7 landscape:row-end-8 rounded-full bg-white bg-opacity-[10%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
+              className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-9 landscape:row-start-7 landscape:row-end-8 rounded-full bg-white bg-opacity-[3%] rotate-90 flex items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
               onClick={scroll}
             >
               scroll
