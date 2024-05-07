@@ -658,13 +658,13 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-[rgb(0,44,62)] border-opacity-20 backdrop-blur"
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-[rgb(0,44,62)] border-opacity-20 backdrop-blur bg-white bg-opacity-30"
                     id="video-bg"
                   >
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-fit hover:scale-[123%] portrait:hover:scale-[112%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[10] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-fit hover:scale-[123%] portrait:hover:scale-[112%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -812,7 +812,7 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur bg-white bg-opacity-30"
                     id="video-bg"
                   >
                     {" "}
@@ -966,13 +966,13 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur"
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur bg-white bg-opacity-30"
                     id="video-bg"
                   >
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[1] w-[80%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[15%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[10] w-[80%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[15%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video

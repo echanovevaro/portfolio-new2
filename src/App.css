@@ -356,7 +356,7 @@ section {
 
 .container:has(.player:hover) #video-bg {
   z-index: 19 !important;
-  transform: scale(130%) translate(0%, -4%) !important;
+  transform: scale(130%) !important;
 }
 
 /* .container:has(.player:hover) video {
