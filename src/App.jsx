@@ -664,7 +664,7 @@ export default function App() {
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[10] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-fit hover:scale-[123%] portrait:hover:scale-[112%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-fit hover:scale-[123%] portrait:hover:scale-[112%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -972,7 +972,7 @@ export default function App() {
                     {" "}
                   </div>
                   <div
-                    className="player absolute z-[10] w-[80%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[15%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player absolute z-[1] w-[80%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[15%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
