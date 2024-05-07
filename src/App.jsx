@@ -439,7 +439,7 @@ export default function App() {
             }  font-light absolute landscape:w-[calc(47*80vh/21)] w-[calc(21*80vh/39)] h-[80vh] top-[10vh] landscape:left-[5vw] left-2 grid landscape:grid-cols-[8fr_1fr_1fr_3fr_21fr_8fr_2fr_3fr] landscape:grid-rows-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-cols-[5fr_1fr_2fr_5fr_2fr_1fr_5fr] grid-rows-[8fr_2fr_3fr_21fr_3fr_2fr]`}
           >
             <div
-              className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 border border-slate-900 border-opacity-30 flex flex-col items-center justify-center"
+              className="col-start-1 col-end-4 row-start-1 row-end-2 landscape:col-start-1 landscape:col-end-2 landscape:row-start-1 landscape:row-end-4 rounded-full bg-white bg-opacity-20 flex flex-col items-center justify-center"
               style={{
                 transform: isInView ? "unset" : "scale(0)",
                 opacity: isInView ? 1 : 0,
