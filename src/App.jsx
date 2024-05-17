@@ -637,10 +637,10 @@ export default function App() {
                     </video>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="white"
+                      fill="rgba(255,255,255,0.5)"
                       viewBox="0 0 24 24"
                       strokeWidth={0.5}
-                      stroke="#333"
+                      stroke="white"
                       className={`${
                         isPlaying2 ? "hidden" : ""
                       } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
@@ -687,10 +687,10 @@ export default function App() {
                     </video>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="white"
+                      fill="rgba(255,255,255,0.5)"
                       viewBox="0 0 24 24"
                       strokeWidth={0.5}
-                      stroke="#333"
+                      stroke="white"
                       className={`${
                         isPlaying1 ? "hidden" : ""
                       } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
@@ -732,10 +732,10 @@ export default function App() {
                     </video>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="white"
+                      fill="rgba(255,255,255,0.5)"
                       viewBox="0 0 24 24"
                       strokeWidth={0.5}
-                      stroke="#333"
+                      stroke="white"
                       className={`${
                         isPlaying3 ? "hidden" : ""
                       } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
