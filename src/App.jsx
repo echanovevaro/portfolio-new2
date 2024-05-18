@@ -39,19 +39,6 @@ export default function App() {
     })
   }
 
-  function onPanStart(_, info) {
-    ref.current = info.point.x
-  }
-
-  function onPanEnd(_, info) {
-    console.log("pan")
-    if (info.point.x < ref.current) {
-      slideRight()
-    } else if (info.point.x > ref.current) {
-      slideLeft()
-    }
-  }
-
   const load = (e) => {
     e.currentTarget.load()
   }
@@ -609,9 +596,7 @@ export default function App() {
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 1 }}
-                  className="relative w-full h-full touch-pinch-zoom"
-                  onPanStart={onPanStart}
-                  onPanEnd={onPanEnd}
+                  className="relative w-full h-full"
                 >
                   <div
                     className="player absolute z-10 w-[70%] top-[43%] portrait:top-[45%] landscape:right-[2%] portrait:right-[2%] h-fit hover:scale-[140%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
@@ -763,9 +748,7 @@ export default function App() {
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 1 }}
-                  className="relative w-full h-full touch-pinch-zoom"
-                  onPanStart={onPanStart}
-                  onPanEnd={onPanEnd}
+                  className="relative w-full h-full"
                 >
                   <div
                     className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] portrait:right-[2%] h-fit hover:scale-[150%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
@@ -917,9 +900,7 @@ export default function App() {
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 1 }}
-                  className="relative w-full h-full touch-pinch-zoom"
-                  onPanStart={onPanStart}
-                  onPanEnd={onPanEnd}
+                  className="relative w-full h-full"
                 >
                   <div
                     className="player absolute z-10 w-[45%] top-[53%] portrait:top-[50%] right-[6%] h-fit hover:scale-[160%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
