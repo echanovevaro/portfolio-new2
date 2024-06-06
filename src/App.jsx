@@ -599,7 +599,7 @@ export default function App() {
                   className="relative w-full h-full"
                 >
                   <div
-                    className="player player2 absolute z-10 w-[70%] top-[43%] portrait:top-[45%] landscape:right-[2%] portrait:right-[2%] h-fit hover:scale-[140%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player player2 absolute z-10 w-[70%] top-[43%] portrait:top-[43%] landscape:right-[2%] portrait:right-[2%] h-fit hover:scale-[140%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -643,30 +643,30 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-[rgb(0,44,62)] border-opacity-20 backdrop-blur bg-white bg-opacity-30"
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full backdrop-blur-sm border border-[rgb(0,44,62)] border-opacity-20  bg-white bg-opacity-30"
                     id="video-bg"
                   >
                     <div
                       id="text-bg1"
-                      className="hidden description z-20  absolute text-white font-thin left-[50%] translate-x-[-50%] h-[30%] w-[30%]  bg-slate-800 bg-opacity-40 rounded-full"
+                      className="hidden description z-20  absolute text-[rgb(0,44,62)] font-extralight left-[50%] translate-x-[-50%] h-[35%] w-[35%]  bg-[#ffffff] bg-opacity-30 rounded-full border border-[rgb(0,44,62)] border-opacity-20"
                     >
-                      <div className="w-full h-full flex items-center justify-center text-[0.5rem]">
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
                         <p>Create meetup</p>
                       </div>
                     </div>
                     <div
                       id="text-bg2"
-                      className="hidden description z-20  absolute text-white font-thin left-[50%] translate-x-[-50%] h-[30%] w-[30%]  bg-slate-800 bg-opacity-40 rounded-full"
+                      className="hidden description z-20  absolute text-[rgb(0,44,62)] font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-[rgb(0,44,62)] border-opacity-20 rounded-full"
                     >
-                      <div className="w-full h-full flex items-center justify-center text-[0.5rem]">
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
                         <p>Update meetup</p>
                       </div>
                     </div>
                     <div
                       id="text-bg3"
-                      className="hidden description z-20  absolute text-white font-thin left-[50%] translate-x-[-50%] h-[30%] w-[30%]  bg-slate-800 bg-opacity-40 rounded-full"
+                      className="hidden description z-20  absolute text-[rgb(0,44,62)] font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-[rgb(0,44,62)] border-opacity-20 rounded-full"
                     >
-                      <div className="w-full h-full flex items-center justify-center text-[0.5rem]">
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
                         <p>Responsive mobile</p>
                       </div>
                     </div>
