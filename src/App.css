@@ -357,6 +357,19 @@ section {
 .container:has(.player:hover) #video-bg {
   z-index: 19 !important;
   transform: scale(130%) !important;
+  --tw-bg-opacity: 0.5;
+}
+
+.container:has(.player1:hover) #text-bg1 {
+  display: block !important;
+}
+
+.container:has(.player2:hover) #text-bg2 {
+  display: block !important;
+}
+
+.container:has(.player3:hover) #text-bg3 {
+  display: block !important;
 }
 
 /* .container:has(.player:hover) video {
@@ -410,7 +423,8 @@ section {
   }
 
   .description {
-    font-size: 0.6rem !important;
+    font-size: 0.7rem !important;
+    line-height: 0.9rem !important;
   }
 
   .title {

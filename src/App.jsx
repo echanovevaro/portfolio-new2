@@ -1,6 +1,6 @@
 import "./App.css"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { motion, useInView } from "framer-motion"
+import { AnimatePresence, motion, useInView } from "framer-motion"
 
 const NUM_WORKS = 3
 
@@ -472,10 +472,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
-                    Artist website with admin mode, UX/UI Fullstack.
+                  <p className="description text-sm">
+                    Artist website with admin mode.
                   </p>
-                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-sm">
                     React, TanStack Query, React Router, Tailwind, Framer-Motion
                     and firebase.
                   </p>
@@ -599,7 +599,7 @@ export default function App() {
                   className="relative w-full h-full"
                 >
                   <div
-                    className="player absolute z-10 w-[70%] top-[43%] portrait:top-[45%] landscape:right-[2%] portrait:right-[2%] h-fit hover:scale-[140%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player player2 absolute z-10 w-[70%] top-[43%] portrait:top-[45%] landscape:right-[2%] portrait:right-[2%] h-fit hover:scale-[140%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -646,10 +646,33 @@ export default function App() {
                     className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-[rgb(0,44,62)] border-opacity-20 backdrop-blur bg-white bg-opacity-30"
                     id="video-bg"
                   >
-                    {" "}
+                    <div
+                      id="text-bg1"
+                      className="hidden description z-20  absolute text-white font-thin left-[50%] translate-x-[-50%] h-[30%] w-[30%]  bg-slate-800 bg-opacity-40 rounded-full"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.5rem]">
+                        <p>Create meetup</p>
+                      </div>
+                    </div>
+                    <div
+                      id="text-bg2"
+                      className="hidden description z-20  absolute text-white font-thin left-[50%] translate-x-[-50%] h-[30%] w-[30%]  bg-slate-800 bg-opacity-40 rounded-full"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.5rem]">
+                        <p>Update meetup</p>
+                      </div>
+                    </div>
+                    <div
+                      id="text-bg3"
+                      className="hidden description z-20  absolute text-white font-thin left-[50%] translate-x-[-50%] h-[30%] w-[30%]  bg-slate-800 bg-opacity-40 rounded-full"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.5rem]">
+                        <p>Responsive mobile</p>
+                      </div>
+                    </div>
                   </div>
                   <div
-                    className="player absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-fit hover:scale-[123%] portrait:hover:scale-[112%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player player1 absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-fit hover:scale-[123%] portrait:hover:scale-[112%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
@@ -693,7 +716,7 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="player absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
+                    className="player player3 absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
                     onClick={(e) => play(e)}
                   >
                     <video
