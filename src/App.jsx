@@ -1,6 +1,6 @@
 import "./App.css"
 import { useCallback, useEffect, useRef, useState } from "react"
-import { AnimatePresence, motion, useInView } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 
 const NUM_WORKS = 3
 
@@ -10,7 +10,7 @@ export default function App() {
   const [isPlaying1, setIsPlaying1] = useState(false)
   const [isPlaying2, setIsPlaying2] = useState(false)
   const [isPlaying3, setIsPlaying3] = useState(false)
-  const ref = useRef(0)
+
   const functions = {
     1: setIsPlaying1,
     2: setIsPlaying2,
@@ -20,17 +20,19 @@ export default function App() {
   const isInView = useInView(refSection2, { once: true, amount: 0.9 })
 
   const disable = (e) => {
-    const videos = e.target.parentNode.parentNode.querySelectorAll("video")
+    let player = e.currentTarget
+    const videos = player.parentNode.querySelectorAll("video")
     videos.forEach((video) => {
-      if (video !== e.target) {
+      if (video !== player.querySelector("video")) {
         video.parentNode.style.pointerEvents = "none"
       }
     })
   }
   const enable = (e) => {
-    const videos = e.target.parentNode.parentNode.querySelectorAll("video")
+    let player = e.currentTarget
+    const videos = player.parentNode.querySelectorAll("video")
     videos.forEach((video) => {
-      if (video !== e.target) {
+      if (video !== e.currentTarget.querySelector("video")) {
         video.parentNode.style.pointerEvents = null
       } else {
         functions[video.id](false)
@@ -44,6 +46,7 @@ export default function App() {
   }
 
   const play = (e) => {
+    console.log("play")
     if (
       e.currentTarget.parentNode.querySelector(".player:hover") &&
       e.currentTarget.parentNode.querySelector(".player:hover") ==
@@ -451,7 +454,7 @@ export default function App() {
               {workCounter === 0 && (
                 <>
                   <h1
-                    className="project landscape:hidden lg:text-2xl text-base font-extralight uppercase block mb-2 cursor-pointer"
+                    className="project landscape:hidden lg:text-2xl text-base font-extralight uppercase underline underline-offset-4 block mb-2 cursor-pointer"
                     onClick={() =>
                       window.open("https://hectoromero.art", "_blank")
                     }
@@ -472,19 +475,18 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="description text-sm">
+                  <p className="description text-sm font-normal tracking-wide">
                     Artist website with admin mode.
                   </p>
                   <p className="description text-sm">
-                    React, TanStack Query, React Router, Tailwind, Framer-Motion
-                    and firebase.
+                    React, TanStack, React Router, Tailwind, and firebase.
                   </p>
                 </>
               )}
               {workCounter === 1 && (
                 <>
                   <h1
-                    className="project landscape:hidden  lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
+                    className="project landscape:hidden  lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer underline underline-offset-4"
                     onClick={() =>
                       window.open(
                         "https://next-js-meetup-crud-14.vercel.app/",
@@ -508,10 +510,10 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-sm font-normal tracking-wide">
                     Meetusp CRUD
                   </p>
-                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
+                  <p className="description text-sm">
                     Next14, TanStack Query, React Router, Bootstrap, and
                     MongoDB.
                   </p>
@@ -520,7 +522,7 @@ export default function App() {
               {workCounter === 2 && (
                 <>
                   <h1
-                    className="project landscape:hidden  lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer"
+                    className="project landscape:hidden  lg:text-2xl text-base font-light uppercase block mb-2 cursor-pointer underline underline-offset-4"
                     onClick={() =>
                       window.open(
                         "https://jocular-sawine-5cf217.netlify.app/photographers",
@@ -544,12 +546,11 @@ export default function App() {
                       />
                     </svg>
                   </h1>
-                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
-                    Platform for professional photographers
+                  <p className="description text-sm font-normal tracking-wide">
+                    Photographers platform
                   </p>
-                  <p className="description text-[0.8rem] portrait:text-[0.65rem] portrait:leading-4 leading-5">
-                    React, TanStack Query, React Router, Bootstrap, and
-                    firebase.
+                  <p className="description text-sm">
+                    React, TanStack, React Router, Bootstrap, and firebase.
                   </p>
                 </>
               )}
@@ -601,6 +602,7 @@ export default function App() {
                   <div
                     className="player player2 absolute z-10 w-[70%] top-[43%] portrait:top-[43%] landscape:right-[2%] portrait:right-[2%] h-fit hover:scale-[140%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="2"
@@ -613,7 +615,6 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/Meetup-update.mp4"
@@ -626,7 +627,7 @@ export default function App() {
                       viewBox="0 0 24 24"
                       strokeWidth={0.5}
                       stroke="white"
-                      className={`${
+                      className={`pointer-events-none ${
                         isPlaying2 ? "hidden" : ""
                       } w-8 h-8 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2`}
                     >
@@ -648,7 +649,7 @@ export default function App() {
                   >
                     <div
                       id="text-bg1"
-                      className="hidden description z-20  absolute text-[rgb(0,44,62)] font-extralight left-[50%] translate-x-[-50%] h-[35%] w-[35%]  bg-[#ffffff] bg-opacity-30 rounded-full border border-[rgb(0,44,62)] border-opacity-20"
+                      className="hidden description z-20  absolute text-slate-900 font-extralight left-[50%] translate-x-[-50%] h-[35%] w-[35%]  bg-[#ffffff] bg-opacity-30 rounded-full border border-[rgb(0,44,62)] border-opacity-20"
                     >
                       <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
                         <p>Create meetup</p>
@@ -656,7 +657,7 @@ export default function App() {
                     </div>
                     <div
                       id="text-bg2"
-                      className="hidden description z-20  absolute text-[rgb(0,44,62)] font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-[rgb(0,44,62)] border-opacity-20 rounded-full"
+                      className="hidden description z-20  absolute  text-slate-900 font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-[rgb(0,44,62)] border-opacity-20 rounded-full"
                     >
                       <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
                         <p>Update meetup</p>
@@ -664,7 +665,7 @@ export default function App() {
                     </div>
                     <div
                       id="text-bg3"
-                      className="hidden description z-20  absolute text-[rgb(0,44,62)] font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-[rgb(0,44,62)] border-opacity-20 rounded-full"
+                      className="hidden description z-20  absolute  text-slate-900 font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-[rgb(0,44,62)] border-opacity-20 rounded-full"
                     >
                       <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
                         <p>Responsive mobile</p>
@@ -674,6 +675,7 @@ export default function App() {
                   <div
                     className="player player1 absolute z-[1] w-[90%] top-[15%] right-[9.3%] portrait:right-[10%] h-fit hover:scale-[123%] portrait:hover:scale-[112%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="1"
@@ -686,7 +688,6 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/Meetup-Create.mp4"
@@ -718,6 +719,7 @@ export default function App() {
                   <div
                     className="player player3 absolute z-10 w-[22%] bottom-[10%] portrait:bottom-0 left-[15%] h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="3"
@@ -731,7 +733,6 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/Meetup-movil.mp4"
@@ -774,8 +775,9 @@ export default function App() {
                   className="relative w-full h-full"
                 >
                   <div
-                    className="player absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] portrait:right-[2%] h-fit hover:scale-[150%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player player2 absolute z-10 w-[70%] top-[40%] portrait:top-[45%] right-[5%] portrait:right-[2%] h-fit hover:scale-[150%] portrait:hover:scale-[140%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="2"
@@ -788,7 +790,6 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/carrusel.mp4"
@@ -818,14 +819,38 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur bg-white bg-opacity-30"
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full backdrop-blur-sm border border-[rgb(0,44,62)] border-opacity-20  bg-white bg-opacity-30"
                     id="video-bg"
                   >
-                    {" "}
+                    <div
+                      id="text-bg1"
+                      className="hidden description z-20  absolute text-[#002c3e] font-extralight left-[50%] translate-x-[-50%] h-[35%] w-[35%]  bg-[#ffffff] bg-opacity-30 rounded-full border border-[#002c3e] border-opacity-20"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
+                        <p>Admin mode</p>
+                      </div>
+                    </div>
+                    <div
+                      id="text-bg2"
+                      className="hidden description z-20  absolute text-[#002c3e] font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-[#002c3e] border-opacity-20 rounded-full"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
+                        <p>Web scrolling</p>
+                      </div>
+                    </div>
+                    <div
+                      id="text-bg3"
+                      className="hidden description z-20  absolute text-[#002c3e] font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-[#002c3e] border-opacity-20 rounded-full"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
+                        <p>Responsive mobile</p>
+                      </div>
+                    </div>
                   </div>
                   <div
-                    className="player absolute z-[1] w-[85%] top-[15%] portrait:top-[15%] right-[15%] portrait:right-[14%] h-fit hover:scale-[130%] portrait:hover:scale-[120%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player player1 absolute z-[1] w-[85%] top-[15%] portrait:top-[15%] right-[15%] portrait:right-[14%] h-fit hover:scale-[130%] portrait:hover:scale-[120%] hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="1"
@@ -838,7 +863,6 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/hector-admin.mp4"
@@ -868,8 +892,9 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="player absolute z-10 w-[22%] bottom-[10%] portrait:bottom-[0%] portrait:left-[15%] left-[15%]  portrait:hover:scale-[220%] h-fit hover:scale-[180%]  hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
+                    className="player player3 absolute z-10 w-[22%] bottom-[10%] portrait:bottom-[0%] portrait:left-[15%] left-[15%]  portrait:hover:scale-[220%] h-fit hover:scale-[180%]  hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="3"
@@ -883,7 +908,6 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/movil.mp4"
@@ -926,8 +950,9 @@ export default function App() {
                   className="relative w-full h-full"
                 >
                   <div
-                    className="player absolute z-10 w-[45%] top-[53%] portrait:top-[50%] right-[6%] h-fit hover:scale-[160%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player player1 absolute z-10 w-[45%] top-[53%] portrait:top-[50%] right-[6%] h-fit hover:scale-[160%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="2"
@@ -940,7 +965,6 @@ export default function App() {
                         setIsPlaying2(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/login-photografy.mp4"
@@ -969,15 +993,40 @@ export default function App() {
                       />
                     </svg>
                   </div>
+
                   <div
-                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full border border-white border-opacity-20 backdrop-blur bg-white bg-opacity-30"
+                    className="transition ease-out duration-700 absolute z-[1] w-full h-full rounded-full backdrop-blur-sm border border-[rgb(0,44,62)] border-opacity-20  bg-white bg-opacity-30"
                     id="video-bg"
                   >
-                    {" "}
+                    <div
+                      id="text-bg1"
+                      className="hidden description z-20  absolute text-slate-900 font-extralight left-[50%] translate-x-[-50%] h-[35%] w-[35%]  bg-[#ffffff] bg-opacity-30 rounded-full border border-slate-900 border-opacity-20"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
+                        <p>Publishing your work</p>
+                      </div>
+                    </div>
+                    <div
+                      id="text-bg2"
+                      className="hidden description z-20  absolute text-slate-900 font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-slate-900 border-opacity-20 rounded-full"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]"></div>
+                      <p>Web tour</p>
+                    </div>
+                    <div
+                      id="text-bg3"
+                      className="hidden description z-20  absolute text-slate-900 font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-slatetext-slate-900 border-opacity-20 rounded-full"
+                    >
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
+                        <p>Responsive mobile</p>
+                      </div>
+                    </div>
                   </div>
+
                   <div
-                    className="player absolute z-[1] w-[80%] top-[15%] portrait:top-[10%] right-[15%] portrait:right-[15%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
+                    className="player player2 absolute z-[1] w-[80%] top-[15%] portrait:top-[15%] right-[15%] portrait:right-[15%] h-fit hover:scale-125 portrait:hover:scale-110 hover:z-20 transition ease-in duration-700 origin-top-left cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="1"
@@ -990,7 +1039,6 @@ export default function App() {
                         setIsPlaying1(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/visit-photogafhy.mp4"
@@ -1020,8 +1068,9 @@ export default function App() {
                     </svg>
                   </div>
                   <div
-                    className="player absolute z-10 w-[22%] bottom-[0%] portrait:bottom-0 left-[30%] h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
+                    className="player player3 absolute z-10 w-[22%] bottom-[0%] portrait:bottom-0 left-[30%] h-fit hover:scale-[200%] hover:z-20 transition ease-in duration-700 origin-bottom-left cursor-pointer"
                     onClick={(e) => play(e)}
+                    onMouseLeave={(e) => enable(e)}
                   >
                     <video
                       id="3"
@@ -1035,7 +1084,6 @@ export default function App() {
                         setIsPlaying3(false)
                         load(e)
                       }}
-                      onMouseLeave={(e) => enable(e)}
                     >
                       <source
                         src="/movil-photografy.mp4"
@@ -1091,7 +1139,7 @@ export default function App() {
               {/* </span> */}
               {workCounter === 0 && (
                 <h1
-                  className="project  lg:text-lg text-base font-extralight uppercase block mb-2 cursor-pointer"
+                  className="project  lg:text-lg text-base font-extralight uppercase border-b-[0.5px] border-white border-opacity-40 block mb-2 cursor-pointer"
                   onClick={() =>
                     window.open("https://hectoromero.art", "_blank")
                   }
@@ -1115,7 +1163,7 @@ export default function App() {
               )}
               {workCounter === 1 && (
                 <h1
-                  className="project lg:text-lg text-base font-light uppercase block mb-2 cursor-pointer"
+                  className="project lg:text-lg text-base font-light uppercase block mb-2 cursor-pointer border-b-[0.5px] border-slate-900 border-opacity-40"
                   onClick={() =>
                     window.open(
                       "https://next-js-meetup-crud-14.vercel.app/",
@@ -1142,7 +1190,7 @@ export default function App() {
               )}
               {workCounter === 2 && (
                 <h1
-                  className="project lg:text-lg text-base font-light uppercase block mb-2 cursor-pointer"
+                  className="project lg:text-lg text-base font-light uppercase block mb-2 cursor-pointer border-b-[0.5px] border-slate-900 border-opacity-40"
                   onClick={() =>
                     window.open(
                       "https://jocular-sawine-5cf217.netlify.app/photographers",
