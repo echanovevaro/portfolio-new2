@@ -1002,7 +1002,7 @@ export default function App() {
                       className="hidden description z-20  absolute text-slate-900 font-extralight left-[50%] translate-x-[-50%] h-[35%] w-[35%]  bg-[#ffffff] bg-opacity-30 rounded-full border border-slate-900 border-opacity-20"
                     >
                       <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
-                        <p>Login,publishing your work</p>
+                        <p>Login, publishing your work</p>
                       </div>
                     </div>
                     <div
