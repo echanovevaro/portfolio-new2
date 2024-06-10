@@ -46,7 +46,6 @@ export default function App() {
   }
 
   const play = (e) => {
-    console.log("play")
     if (
       e.currentTarget.parentNode.querySelector(".player:hover") &&
       e.currentTarget.parentNode.querySelector(".player:hover") ==
@@ -950,7 +949,7 @@ export default function App() {
                   className="relative w-full h-full"
                 >
                   <div
-                    className="player player1 absolute z-10 w-[45%] top-[53%] portrait:top-[50%] right-[6%] h-fit hover:scale-[160%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
+                    className="player player1 absolute z-10 w-[45%] top-[53%] portrait:top-[50%] right-[6%] h-fit hover:scale-[170%] hover:z-20  transition ease-in duration-700 origin-bottom-right cursor-pointer"
                     onClick={(e) => play(e)}
                     onMouseLeave={(e) => enable(e)}
                   >
@@ -1003,15 +1002,16 @@ export default function App() {
                       className="hidden description z-20  absolute text-slate-900 font-extralight left-[50%] translate-x-[-50%] h-[35%] w-[35%]  bg-[#ffffff] bg-opacity-30 rounded-full border border-slate-900 border-opacity-20"
                     >
                       <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
-                        <p>Publishing your work</p>
+                        <p>Login,publishing your work</p>
                       </div>
                     </div>
                     <div
                       id="text-bg2"
-                      className="hidden description z-20  absolute text-slate-900 font-extralight  left-[50%] translate-x-[-50%] h-[35%] w-[35%] bg-[#ffffff] bg-opacity-30  border border-slate-900 border-opacity-20 rounded-full"
+                      className="hidden description z-20  absolute text-slate-900 font-extralight left-[50%] translate-x-[-50%] h-[35%] w-[35%]  bg-[#ffffff] bg-opacity-30 rounded-full border border-slate-900 border-opacity-20"
                     >
-                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]"></div>
-                      <p>Web tour</p>
+                      <div className="w-full h-full flex items-center justify-center text-[0.6rem]">
+                        <p>Web tour</p>
+                      </div>
                     </div>
                     <div
                       id="text-bg3"
