@@ -1,6 +1,7 @@
 import "./App.css"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
+import CV from "./assets/CV.pdf"
 
 const NUM_WORKS = 3
 
@@ -1369,7 +1370,7 @@ export default function App() {
           <div className="col-start-6 col-end-7 row-start-5 row-end-6 landscape:col-start-6 landscape:col-end-7 landscape:row-start-5 landscape:row-end-7 rounded-full border border-white border-opacity-20"></div>
           <a
             className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-8 landscape:row-start-6 landscape:row-end-7 rounded-full bg-white bg-opacity-[2%] flex flex-col items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
-            href={"./Alvaro-Riaño-portfolio-2-2024.pdf"}
+            href={CV}
             download
             target="_bank"
           >
