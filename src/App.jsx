@@ -1370,7 +1370,8 @@ export default function App() {
           <a
             className="col-start-7 col-end-8 row-start-5 row-end-7 landscape:col-start-7 landscape:col-end-8 landscape:row-start-6 landscape:row-end-7 rounded-full bg-white bg-opacity-[2%] flex flex-col items-center justify-center transition ease-out duration-500 hover:border hover:border-white hover:border-opacity-20 hover:bg-opacity-5 cursor-pointer"
             href={"./Alvaro-Riaño-portfolio-2-2024.pdf"}
-            download="Alvaro-Riaño-portfolio-2-2024.pdf"
+            download
+            target="_bank"
           >
             <span className="text-1xl uppercase block font-thin ">CV PDF</span>
             <svg
